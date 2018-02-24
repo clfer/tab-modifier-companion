@@ -3,6 +3,7 @@ The goal of this project is to provide a way to generate icons for all environme
 
 ---
 
+## Description
 _Proof of Concept_
 
 I used  [chrome-tab-modifier](https://github.com/sylouuu/chrome-tab-modifier) to color code my development environments.
@@ -11,7 +12,7 @@ This worked fine with the provided icons when I had only one app (Drupal) and a 
 But I recently moved to a new project where there is way more environments and I kept getting lost in my tabs.
 So I wrote a little PHP script using GD library to generated all my icons.
 
-_[code is coming but it need a little bit more polishing]_
+##### Example:
 
 _First example list of generated icons:_
 <table>
@@ -260,3 +261,7 @@ _First example list of generated icons:_
         </td>
     </tr>
 </table>
+
+## Changelog
+
+- v0.0.0 : Added proof of concept code.
