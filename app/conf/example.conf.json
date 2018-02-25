@@ -1,0 +1,35 @@
+{
+  "icons_dir": "./icons_original",
+  "icons_generation_dir": "./icons_generated",
+  "environments": {
+    "local": {
+      "color": "#00abba"
+    },
+    "dev": {
+      "color": "#00ba44"
+    },
+    "staging": {
+      "color": "#ebba3d"
+    },
+    "prod": {
+      "color": "#ba0700"
+    }
+  },
+  "apps": {
+    "drupal": {
+      "original_icon": "app/drupal-favicon.png",
+      "original_color": "#0073BA",
+      "localize": true
+    },
+    "magento": {
+      "original_icon": "app/magento-favicon.png",
+      "original_color": "#F16323",
+      "localize": true,
+      "multi": true
+    },
+    "jenkins": {
+      "original_icon": "app/favicon-jenkins-yellow.png",
+      "original_color": "#FFCF6D"
+    }
+  }
+}

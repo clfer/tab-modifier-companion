@@ -1,67 +1,33 @@
 <?php
 
 /**
+ * @param $conf_path string path to the conf file to load
  *
+ * @return array
  */
-function _get_conf() {
-  $conf = array();
-
-  $conf['environments'] = array(
-    'local' => array(
-      'color' => '#00abba',
-    ),
-    'dev' => array(
-      'color' => '#00ba44',
-    ),
-    'staging' => array(
-      'color' => '#ebba3d',
-    ),
-    'prod' => array(
-      'color' => '#ba0700',
-    ),
-  );
-
-  $conf['apps'] = array(
-    'drupal' => array(
-      'original_icon' => 'app/drupal-favicon.png',
-      'original_color' => '#0073BA',
-      'localize' => TRUE,
-    ),
-    'magento' => array(
-      'original_icon' => 'app/magento-favicon.png',
-      'original_color' => '#F16323',
-      'localize' => TRUE,
-      'multi' => TRUE,
-    ),
-    'jenkins' => array(
-      'original_icon' => 'app/favicon-jenkins-yellow.png',
-      'original_color' => '#FFCF6D',
-    ),
-  );
-
+function _get_conf($conf_path) {
+  $json_raw = file_get_contents($conf_path);
+  $conf = json_decode($json_raw, TRUE);
   return $conf;
 }
 
 /**
+ * @param $conf_path string path to the conf file to generate
  *
+ * @return array an array with the generated icons path
  */
-function icon_generation() {
-  $app_base_path = '.';
-
-  $icons_root = $app_base_path . '/icons_original';
-  $icons_generation_root = $app_base_path . '/icons_generated';
-
+function icon_generation($conf_path) {
   $flag_icons = array(
     'EMEA' => 'flags/favicon-eu-16.png',
     'US' => 'flags/favicon-us-16.png',
   );
 
-  $conf = _get_conf();
+  $conf = _get_conf($conf_path);
 
   $generated_icons_list = array();
 
   foreach ($conf['apps'] as $app_code => $app_info) {
-    $app_info_path = $icons_root . '/' . $app_info['original_icon'];
+    $app_info_path = $conf['icons_dir'] . '/' . $app_info['original_icon'];
     //    $base_color = getpngbasecolor($app_info['original_icon']);
     $base_color = $app_info['original_color'];
     list($base_hue, $base_saturation, $base_value) = hex2hsl($base_color);
@@ -80,7 +46,7 @@ function icon_generation() {
       $delta_hue = $colorize_hue - $base_hue;
       imagehue($base_layer, $delta_hue * 360);
 
-      $env_generated_dir = "$icons_generation_root/$env_code";
+      $env_generated_dir = "{$conf['icons_generation_dir']}/$env_code";
       $colorized_icon_path = $env_generated_dir . "/$app_code.png";
 
       // Create subfolders if they don't already exist
@@ -88,7 +54,6 @@ function icon_generation() {
       if (!file_exists($colorized_icon_dir)) {
         mkdir($colorized_icon_dir, '0775', TRUE);
       }
-
       // Save image
       imagepng($base_layer, $colorized_icon_path);
       imagedestroy($base_layer);
@@ -98,7 +63,7 @@ function icon_generation() {
 
       if (!empty($app_info['localize'])) {
         foreach ($flag_icons as $flag_code => $flag_icon) {
-          $layer_icon_path = $icons_root . '/' . $flag_icon;
+          $layer_icon_path = $conf['icons_dir'] . '/' . $flag_icon;
 
           //--- Create base layer ---
           // Load base layer
@@ -139,7 +104,7 @@ function icon_generation() {
 
 
               //--- Add a number ---
-              $font_path = $app_base_path . '/fonts/CONSOLAB.TTF';
+              $font_path = './fonts/CONSOLAB.TTF';
 
 
               $font_size = 10;

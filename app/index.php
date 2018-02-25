@@ -22,7 +22,8 @@ require_once 'icon_generation.php';
 
 
 try {
-  $icons = icon_generation();
+  $conf_path = './conf/example.conf.json';
+  $icons = icon_generation($conf_path);
   print _print_table($icons, TRUE);
 
 } catch (Exception $e) {
