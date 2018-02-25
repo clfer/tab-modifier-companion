@@ -62,12 +62,7 @@ function icon_generation($conf_path) {
           $colorized_layer = imagecreatefrompng($colorized_icon_path);
           _imagetransparency($colorized_layer);
 
-          //--- Merge with flag ---
-          // Load and merge layer
-          $flag_layer = imagecreatefrompng($layer_icon_path);
-          _imagetransparency($flag_layer);
-          imagecopy($colorized_layer, $flag_layer, 1, 1, 0, 0, 32, 32);
-          imagedestroy($flag_layer);
+          imagevariation_merge($colorized_layer, $layer_icon_path, array('margin' => 1));
 
           // --- Save result ---
           $localize_generated_dir = "$env_generated_dir/$flag_code";
@@ -100,6 +95,43 @@ function icon_generation($conf_path) {
   }
 
   return $generated_icons_list;
+}
+
+/**
+ * @param $base_layer resource the png image to apply the text on
+ * @param $new_layer_png_path
+ * @param array $options
+ *  array(
+ *   'position' => 'top-left'|'top-right'|'bottom-left'|'bottom-right',
+ *  )
+ *
+ * @see \imagecreatefrompng()
+ */
+function imagevariation_merge($base_layer, $new_layer_png_path, $options = array()) {
+  $options += array(
+    'position' => 'top-left',
+    'margin' => 0,
+  );
+
+  $base_layer_width = imagesx($base_layer);
+  $base_layer_height = imagesy($base_layer);
+
+  //--- Merge with new layer ---
+  // Load and merge layer
+  $new_layer = imagecreatefrompng($new_layer_png_path);
+  _imagetransparency($new_layer);
+
+  list($x, $y) = _get_position($options['position'], array(
+    'margin' => $options['margin'],
+    'width' => imagesx($new_layer),
+    'height' => imagesy($new_layer),
+    'total_width' => $base_layer_width,
+    'total_height' => $base_layer_height,
+  ));
+
+  imagecopy($base_layer, $new_layer, $x, $y, 0, 0, $base_layer_width, $base_layer_height);
+
+  imagedestroy($new_layer);
 }
 
 /**
