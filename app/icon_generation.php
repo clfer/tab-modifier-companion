@@ -48,7 +48,7 @@ function _get_conf() {
 function icon_generation() {
   $app_base_path = '.';
 
-  $icons_root = $app_base_path . '/icons';
+  $icons_root = $app_base_path . '/icons_original';
   $icons_generation_root = $app_base_path . '/icons_generated';
 
   $flag_icons = array(
@@ -66,7 +66,7 @@ function icon_generation() {
     $base_color = $app_info['original_color'];
     list($base_hue, $base_saturation, $base_value) = hex2hsl($base_color);
 
-    $generated_icons_list['original'][$app_code] = $app_info_path;
+    $generated_icons_list[''][$app_code] = $app_info_path;
 
     foreach ($conf['environments'] as $env_code => $env_info) {
 
@@ -81,7 +81,7 @@ function icon_generation() {
       imagehue($base_layer, $delta_hue * 360);
 
       $env_generated_dir = "$icons_generation_root/$env_code";
-      $colorized_icon_path = $env_generated_dir ."/$app_code.png";
+      $colorized_icon_path = $env_generated_dir . "/$app_code.png";
 
       // Create subfolders if they don't already exist
       $colorized_icon_dir = pathinfo($colorized_icon_path, PATHINFO_DIRNAME);
@@ -94,7 +94,7 @@ function icon_generation() {
       imagedestroy($base_layer);
 
 
-      $generated_icons_list[$env_code][$app_code]['original'] = $colorized_icon_path;
+      $generated_icons_list[$env_code][$app_code][''] = $colorized_icon_path;
 
       if (!empty($app_info['localize'])) {
         foreach ($flag_icons as $flag_code => $flag_icon) {
@@ -113,8 +113,8 @@ function icon_generation() {
           imagedestroy($flag_layer);
 
           // --- Save result ---
-          $localize_generated_dir = $env_generated_dir ."/$flag_code";
-          $new_icon_path = $localize_generated_dir ."/$app_code.png";
+          $localize_generated_dir = $env_generated_dir . "/$flag_code";
+          $new_icon_path = $localize_generated_dir . "/$app_code.png";
 
           // Create subfolders if they don't already exist
           $new_icon_dir = pathinfo($new_icon_path, PATHINFO_DIRNAME);
@@ -126,7 +126,7 @@ function icon_generation() {
           imagepng($colorized_layer, $new_icon_path);
           imagedestroy($colorized_layer);
 
-          $generated_icons_list[$env_code][$app_code][$flag_code]['original'] = $new_icon_path;
+          $generated_icons_list[$env_code][$app_code][$flag_code][''] = $new_icon_path;
 
           // --- Create numbered icons ---
           if (!empty($app_info['multi'])) {
@@ -171,7 +171,7 @@ function icon_generation() {
               }
 
               // --- Save result ---
-              $number_icon_path = $localize_generated_dir ."/multi/$app_code-$flag_code$i.png";
+              $number_icon_path = $localize_generated_dir . "/multi/$app_code-$flag_code$i.png";
 
               // Create subfolders if they don't already exist
               $number_icon_dir = pathinfo($number_icon_path, PATHINFO_DIRNAME);

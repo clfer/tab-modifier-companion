@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+   php:
+    build: ./.docker/conf/php
+    ports:
+      - '80:80'
+    restart: always
+    volumes:
+#       - ./.docker/images/php/error.log:/var/log/apache2/error.log
+#       - ./.docker/images/php/access.log:/var/log/apache2/access.log
+       - ./app:/var/www/html
