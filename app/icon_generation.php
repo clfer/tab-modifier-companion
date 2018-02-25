@@ -47,17 +47,9 @@ function icon_generation($conf_path) {
       imagehue($base_layer, $delta_hue * 360);
 
       $env_generated_dir = "{$conf['icons_generation_dir']}/$env_code";
-      $colorized_icon_path = $env_generated_dir . "/$app_code.png";
 
-      // Create subfolders if they don't already exist
-      $colorized_icon_dir = pathinfo($colorized_icon_path, PATHINFO_DIRNAME);
-      if (!file_exists($colorized_icon_dir)) {
-        mkdir($colorized_icon_dir, '0775', TRUE);
-      }
       // Save image
-      imagepng($base_layer, $colorized_icon_path);
-      imagedestroy($base_layer);
-
+      $colorized_icon_path = imagepng_save($base_layer, $env_generated_dir, $app_code);
 
       $generated_icons_list[$env_code][$app_code][''] = $colorized_icon_path;
 
@@ -78,75 +70,26 @@ function icon_generation($conf_path) {
           imagedestroy($flag_layer);
 
           // --- Save result ---
-          $localize_generated_dir = $env_generated_dir . "/$flag_code";
-          $new_icon_path = $localize_generated_dir . "/$app_code.png";
+          $localize_generated_dir = "$env_generated_dir/$flag_code";
 
-          // Create subfolders if they don't already exist
-          $new_icon_dir = pathinfo($new_icon_path, PATHINFO_DIRNAME);
-          if (!file_exists($new_icon_dir)) {
-            mkdir($new_icon_dir, '0775', TRUE);
-          }
-
-          // Save image
-          imagepng($colorized_layer, $new_icon_path);
-          imagedestroy($colorized_layer);
+          $new_icon_path = imagepng_save($colorized_layer, $localize_generated_dir, $app_code);
 
           $generated_icons_list[$env_code][$app_code][$flag_code][''] = $new_icon_path;
 
           // --- Create numbered icons ---
           if (!empty($app_info['multi'])) {
             for ($i = 1; $i <= 5; $i++) {
+              $target_dir = $localize_generated_dir . "/multi";
+
 
               //--- Create base layer ---
               // Load base layer
-              $number_layer = imagecreatefrompng($new_icon_path);
-              _imagetransparency($number_layer);
+              $image_variation_layer = imagecreatefrompng($new_icon_path);
+              _imagetransparency($image_variation_layer);
 
+              imagevariation_text($image_variation_layer, $i, array('position' => 'top-right'));
 
-              //--- Add a number ---
-              $font_path = './fonts/CONSOLAB.TTF';
-
-
-              $font_size = 10;
-              $bounds = imagettfbbox($font_size, 0, $font_path, $i);
-              if ($bounds !== FALSE) {
-                $number_width = $bounds[2] - $bounds[0];
-                $number_heigth = $bounds[1] - $bounds[7];
-
-                $bg_color = imagecolorallocatealpha($number_layer, 0, 0, 0, 63);
-
-                $padding = 1;
-                $bg_margin = 2;
-                $bg_posx = 31 - $bg_margin;
-                $bg_posy = $bg_margin;
-
-                $bg_width = $number_width + 2 * $padding;
-                $bg_height = $number_heigth + 2 * $padding;
-
-                $bg_width = evenize_down($bg_width);
-                $bg_height = evenize_down($bg_height);
-
-                imagefilledrectangle($number_layer, $bg_posx, $bg_posy, $bg_posx - $bg_width, $bg_posy + $bg_height, $bg_color);
-
-                $number_posx = $bg_posx - $number_width - $padding;
-                $number_posy = $bg_posy + $number_heigth + $padding;
-
-                $font_color = imagecolorallocate($number_layer, 255, 255, 255);
-                imagettftext($number_layer, $font_size, 0, $number_posx, $number_posy, $font_color, $font_path, $i);
-              }
-
-              // --- Save result ---
-              $number_icon_path = $localize_generated_dir . "/multi/$app_code-$flag_code$i.png";
-
-              // Create subfolders if they don't already exist
-              $number_icon_dir = pathinfo($number_icon_path, PATHINFO_DIRNAME);
-              if (!file_exists($number_icon_dir)) {
-                mkdir($number_icon_dir, '0775', TRUE);
-              }
-
-              // Save image
-              imagepng($number_layer, $number_icon_path);
-              imagedestroy($number_layer);
+              $number_icon_path = imagepng_save($image_variation_layer, $target_dir, "$app_code-$flag_code$i");
 
               $generated_icons_list[$env_code][$app_code][$flag_code]['numbers'][$i] = $number_icon_path;
             }
@@ -157,6 +100,136 @@ function icon_generation($conf_path) {
   }
 
   return $generated_icons_list;
+}
+
+/**
+ * @param $base_layer resource the png image to apply the text on
+ * @param $text string
+ * @param array $options
+ *  array(
+ *   'position' => 'top-left'|'top-right'|'bottom-left'|'bottom-right',
+ *   'font_color' => hex color (default: #FFFFFF)
+ *   'bg_color' => hex color (default: #000000)
+ *   'bg_transparency' => 0~1 (default: 0.5)
+ *  )
+ *
+ * @see \imagecreatefrompng()
+ */
+function imagevariation_text(&$base_layer, $text, $options = array()) {
+  $options += array(
+    'position' => 'top-left',
+    'font_color' => '#FFFFFF',
+    'bg_color' => '#000000',
+    'bg_transparency' => 0.5,
+    'font_path' => './fonts/CONSOLAB.TTF',
+  );
+
+  $font_size = 10;
+  $bounds = imagettfbbox($font_size, 0, $options['font_path'], $text);
+  if ($bounds !== FALSE) {
+    $number_width = $bounds[2] - $bounds[0];
+    $number_heigth = $bounds[1] - $bounds[7];
+
+    list($bg_r, $bg_g, $bg_b) = hex2rgb($options['bg_color']);
+    $bg_imagecolor = imagecolorallocatealpha($base_layer, $bg_r, $bg_g, $bg_b, $options['bg_transparency'] * 127);
+
+    $padding = 1;
+
+    $bg_width = $number_width + 2 * $padding;
+    $bg_height = $number_heigth + 2 * $padding;
+
+    $bg_width = evenize_down($bg_width);
+    $bg_height = evenize_down($bg_height);
+
+    list($bg_posx, $bg_posy) = _get_position($options['position'], array(
+      'width' => $bg_width,
+      'height' => $bg_height,
+    ));
+
+    imagefilledrectangle($base_layer, $bg_posx, $bg_posy, $bg_posx + $bg_width, $bg_posy + $bg_height, $bg_imagecolor);
+
+    $number_posx = $bg_posx + $padding;
+    $number_posy = $bg_posy + $number_heigth + $padding;
+
+    list($font_r, $font_g, $font_b) = hex2rgb($options['font_color']);
+    $font_imagecolor = imagecolorallocate($base_layer, $font_r, $font_g, $font_b);
+
+    imagettftext($base_layer, $font_size, 0, $number_posx, $number_posy, $font_imagecolor, $options['font_path'], $text);
+  }
+}
+
+/**
+ * @param $image resource
+ * @param $target_dir string
+ * @param $filename
+ *
+ * @param bool $destroy
+ *
+ * @return string
+ */
+function imagepng_save($image, $target_dir, $filename, $destroy = TRUE) {
+  // --- Save result ---
+  $png_path = $target_dir . "/$filename.png";
+
+  // Create subfolders if they don't already exist
+  if (!file_exists($target_dir)) {
+    mkdir($target_dir, '0775', TRUE);
+  }
+
+  // Save image
+  imagepng($image, $png_path);
+
+  // Destroy image resource
+  if ($destroy) {
+    imagedestroy($image);
+  }
+
+  return $png_path;
+}
+
+/**
+ * @param $position
+ * @param $options
+ *
+ * @return array
+ */
+function _get_position($position, $options = array()) {
+  $x = $y = 0;
+
+  $options += array(
+    'margin' => 2,
+    'total_width' => 32,
+    'total_height' => 32,
+  );
+
+
+  $x_left = $options['margin'];
+  $x_right = isset($options['width']) ? ($options['total_width'] - 1) - $options['margin'] - $options['width'] : (int) $options['total_width'] / 2;
+  $y_top = $options['margin'];
+  $y_bottom = isset($options['height']) ? ($options['total_height'] - 1) - $options['margin'] - $options['height'] : (int) $options['total_height'] / 2;
+
+  switch ($position) {
+    case 'top-left':
+      $x = $x_left;
+      $y = $y_top;
+      break;
+    case 'top-right':
+      $x = $x_right;
+      $y = $y_top;
+      break;
+    case 'bottom-left':
+      $x = $x_left;
+      $y = $y_bottom;
+      break;
+    case 'bottom-right':
+      $x = $x_right;
+      $y = $y_bottom;
+      break;
+  };
+  return array(
+    $x,
+    $y,
+  );
 }
 
 
