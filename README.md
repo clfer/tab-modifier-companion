@@ -264,5 +264,8 @@ _First example list of generated icons:_
 
 ## Changelog
 
-| 0.0.0 | Added proof of concept code. |
-| 0.0.1 | Added demo example and minimal docker to run it. |
+Version | Comment 
+---|---
+0.0.2 | The script now read a json configuration file.<br> Allow to declare and use variations template.
+0.0.1 | Added demo example and minimal docker to run it.
+0.0.0 | Added proof of concept code.

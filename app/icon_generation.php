@@ -5,7 +5,8 @@
  *
  * @return array
  */
-function _get_conf($conf_path) {
+function _load_conf($conf_path) {
+  global $conf;
   $json_raw = file_get_contents($conf_path);
   $conf = json_decode($json_raw, TRUE);
   return $conf;
@@ -17,12 +18,9 @@ function _get_conf($conf_path) {
  * @return array an array with the generated icons path
  */
 function icon_generation($conf_path) {
-  $flag_icons = array(
-    'EMEA' => 'flags/favicon-eu-16.png',
-    'US' => 'flags/favicon-us-16.png',
-  );
+  _load_conf($conf_path);
 
-  $conf = _get_conf($conf_path);
+  global $conf;
 
   $generated_icons_list = array();
 
@@ -46,48 +44,23 @@ function icon_generation($conf_path) {
       $delta_hue = $colorize_hue - $base_hue;
       imagehue($base_layer, $delta_hue * 360);
 
-      $env_generated_dir = "{$conf['icons_generation_dir']}/$env_code";
+      $env_generated_dir = "{$conf['icons_generation_dir']}/$env_code/$app_code";
 
       // Save image
       $colorized_icon_path = imagepng_save($base_layer, $env_generated_dir, $app_code);
 
       $generated_icons_list[$env_code][$app_code][''] = $colorized_icon_path;
 
-      if (!empty($app_info['localize'])) {
-        foreach ($flag_icons as $flag_code => $flag_icon) {
-          $layer_icon_path = $conf['icons_dir'] . '/' . $flag_icon;
+      if (!empty($app_info['variations'])) {
+        foreach ($app_info['variations'] as $app_variation_label => $app_variation) {
+          $new_icons_path = imagevariation_apply($colorized_icon_path, $env_generated_dir, $app_variation_label, $app_variation);
 
-          //--- Create base layer ---
-          // Load base layer
-          $colorized_layer = imagecreatefrompng($colorized_icon_path);
-          _imagetransparency($colorized_layer);
-
-          imagevariation_merge($colorized_layer, $layer_icon_path, array('margin' => 1));
-
-          // --- Save result ---
-          $localize_generated_dir = "$env_generated_dir/$flag_code";
-
-          $new_icon_path = imagepng_save($colorized_layer, $localize_generated_dir, $app_code);
-
-          $generated_icons_list[$env_code][$app_code][$flag_code][''] = $new_icon_path;
-
-          // --- Create numbered icons ---
-          if (!empty($app_info['multi'])) {
-            for ($i = 1; $i <= 5; $i++) {
-              $target_dir = $localize_generated_dir . "/multi";
-
-
-              //--- Create base layer ---
-              // Load base layer
-              $image_variation_layer = imagecreatefrompng($new_icon_path);
-              _imagetransparency($image_variation_layer);
-
-              imagevariation_text($image_variation_layer, $i, array('position' => 'top-right'));
-
-              $number_icon_path = imagepng_save($image_variation_layer, $target_dir, "$app_code-$flag_code$i");
-
-              $generated_icons_list[$env_code][$app_code][$flag_code]['numbers'][$i] = $number_icon_path;
+          if (!empty($new_icons_path)) {
+            if (!isset($generated_icons_list[$env_code][$app_code]['variations'][$app_variation_label])) {
+              $generated_icons_list[$env_code][$app_code]['variations'][$app_variation_label] = array();
             }
+
+            $generated_icons_list[$env_code][$app_code]['variations'][$app_variation_label] = array_merge_recursive($generated_icons_list[$env_code][$app_code]['variations'][$app_variation_label], $new_icons_path);
           }
         }
       }
@@ -98,16 +71,68 @@ function icon_generation($conf_path) {
 }
 
 /**
+ * @param $base_layer_path
+ * @param $target_dir
+ * @param $variation_label
+ * @param $variation
+ *
+ * @return array|FALSE
+ */
+function imagevariation_apply($base_layer_path, $target_dir, $variation_label, $variation) {
+  global $conf;
+  $new_generated_icon_path = FALSE;
+
+  if (!is_array($variation) && isset($conf['variations'][$variation])) {
+    $variation = $conf['variations'][$variation];
+  }
+
+  $variation_target_dir = $target_dir . '/' . $variation_label;
+  if (is_array($variation)) {
+    if (isset($variation['type'])) {
+      $variation_type = $variation['type'];
+      $options = $variation['options'];
+    }
+    else {
+      foreach ($variation as $subvariation_label => $subvariation) {
+        $new_generated_icon_path[$subvariation_label] = imagevariation_apply($base_layer_path, $variation_target_dir, $subvariation_label, $subvariation);
+      }
+    }
+  }
+
+  $imagevariation_function = 'imagevariation_' . $variation_type;
+
+  if (function_exists($imagevariation_function)) {
+
+    $base_layer = imagecreatefrompng($base_layer_path);
+    _imagetransparency($base_layer);
+
+    call_user_func($imagevariation_function, $base_layer, $options);
+
+    $new_icon_path = imagepng_save($base_layer, $variation_target_dir, $variation_label);
+    $new_generated_icon_path[''] = $new_icon_path;
+  }
+
+  if (!empty($variation['variations'])) {
+    foreach ($variation['variations'] as $subvariation_label => $subvariation) {
+      $new_generated_icon_path[$subvariation_label] = imagevariation_apply($new_icon_path, $variation_target_dir, $subvariation_label, $subvariation);
+    }
+  }
+
+  return $new_generated_icon_path;
+}
+
+/**
  * @param $base_layer resource the png image to apply the text on
- * @param $new_layer_png_path
  * @param array $options
  *  array(
+ *   'new_layer_png_path' => string (required)
  *   'position' => 'top-left'|'top-right'|'bottom-left'|'bottom-right',
+ *   'margin' => int
  *  )
  *
  * @see \imagecreatefrompng()
  */
-function imagevariation_merge($base_layer, $new_layer_png_path, $options = array()) {
+function imagevariation_merge($base_layer, $options = array()) {
   $options += array(
     'position' => 'top-left',
     'margin' => 0,
@@ -118,7 +143,7 @@ function imagevariation_merge($base_layer, $new_layer_png_path, $options = array
 
   //--- Merge with new layer ---
   // Load and merge layer
-  $new_layer = imagecreatefrompng($new_layer_png_path);
+  $new_layer = imagecreatefrompng($options['path']);
   _imagetransparency($new_layer);
 
   list($x, $y) = _get_position($options['position'], array(
@@ -136,9 +161,9 @@ function imagevariation_merge($base_layer, $new_layer_png_path, $options = array
 
 /**
  * @param $base_layer resource the png image to apply the text on
- * @param $text string
  * @param array $options
  *  array(
+ *   'text' => string (required)
  *   'position' => 'top-left'|'top-right'|'bottom-left'|'bottom-right',
  *   'font_color' => hex color (default: #FFFFFF)
  *   'bg_color' => hex color (default: #000000)
@@ -147,7 +172,7 @@ function imagevariation_merge($base_layer, $new_layer_png_path, $options = array
  *
  * @see \imagecreatefrompng()
  */
-function imagevariation_text(&$base_layer, $text, $options = array()) {
+function imagevariation_text($base_layer, $options = array()) {
   $options += array(
     'position' => 'top-left',
     'font_color' => '#FFFFFF',
@@ -155,6 +180,8 @@ function imagevariation_text(&$base_layer, $text, $options = array()) {
     'bg_transparency' => 0.5,
     'font_path' => './fonts/CONSOLAB.TTF',
   );
+
+  $text = $options['text'];
 
   $font_size = 10;
   $bounds = imagettfbbox($font_size, 0, $options['font_path'], $text);

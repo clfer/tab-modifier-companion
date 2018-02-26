@@ -19,17 +19,99 @@
     "drupal": {
       "original_icon": "app/drupal-favicon.png",
       "original_color": "#0073BA",
-      "localize": true
+      "variations": {
+        "US": "US",
+        "EMEA": "EMEA"
+      }
     },
     "magento": {
       "original_icon": "app/magento-favicon.png",
       "original_color": "#F16323",
-      "localize": true,
-      "multi": true
+      "variations": {
+        "US-multi": "US-multi",
+        "EMEA": "EMEA-multi"
+      }
     },
     "jenkins": {
       "original_icon": "app/favicon-jenkins-yellow.png",
       "original_color": "#FFCF6D"
+    }
+  },
+  "variations": {
+    "US": {
+      "type": "merge",
+      "options": {
+        "path": "./icons_original/flags/favicon-us-16.png",
+        "position": "top-left",
+        "margin": 1
+      }
+    },
+    "US-multi": {
+      "type": "merge",
+      "options": {
+        "path": "./icons_original/flags/favicon-us-16.png",
+        "position": "top-left",
+        "margin": 1
+      },
+      "variations": {
+        "multi": "multi"
+      }
+    },
+    "EMEA": {
+      "type": "merge",
+      "options": {
+        "path": "./icons_original/flags/favicon-eu-16.png",
+        "position": "top-left",
+        "margin": 1
+      }
+    },
+    "EMEA-multi": {
+      "type": "merge",
+      "options": {
+        "path": "./icons_original/flags/favicon-eu-16.png",
+        "position": "top-left",
+        "margin": 1
+      },
+      "variations": {
+        "multi": "multi"
+      }
+    },
+    "multi": {
+      "1": {
+        "type": "text",
+        "options": {
+          "position": "top-right",
+          "text": "1"
+        }
+      },
+      "2": {
+        "type": "text",
+        "options": {
+          "position": "top-right",
+          "text": "2"
+        }
+      },
+      "3": {
+        "type": "text",
+        "options": {
+          "position": "top-right",
+          "text": "3"
+        }
+      },
+      "4": {
+        "type": "text",
+        "options": {
+          "position": "top-right",
+          "text": "4"
+        }
+      },
+      "5": {
+        "type": "text",
+        "options": {
+          "position": "top-right",
+          "text": "5"
+        }
+      }
     }
   }
 }
