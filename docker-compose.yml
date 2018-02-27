@@ -6,6 +6,8 @@ services:
     ports:
       - '80:80'
     restart: always
+    environment:
+        XDEBUG_CONFIG: remote_host=192.168.99.1
     volumes:
 #       - ./.docker/images/php/error.log:/var/log/apache2/error.log
 #       - ./.docker/images/php/access.log:/var/log/apache2/access.log

@@ -8,6 +8,11 @@ RUN apt-get update && apt-get install -y \
                    	&& docker-php-ext-configure gd --with-freetype-dir=/usr/include/ \
                    	&& docker-php-ext-install gd
 
+RUN pecl install xdebug-2.5.0 \
+  && echo "zend_extension=$(find /usr/local/lib/php/extensions/ -name xdebug.so)" > /usr/local/etc/php/conf.d/xdebug.ini \
+  && echo "xdebug.remote_enable=on" >> /usr/local/etc/php/conf.d/xdebug.ini \
+  && echo "xdebug.remote_autostart=off" >> /usr/local/etc/php/conf.d/xdebug.ini
+
 COPY tab-modifier-companion.local.conf  /etc/apache2/sites-available/
 COPY hosts  /etc/hosts
 
