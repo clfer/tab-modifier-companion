@@ -5,7 +5,7 @@ services:
     build: ./.docker/conf/php
     restart: always
     environment:
-        XDEBUG_CONFIG: remote_host=192.168.99.1
+        XDEBUG_CONFIG: remote_host=192.168.99.1 remote_port=8000
         VIRTUAL_HOST: tab-modifier-companion.test
     volumes:
 #       - ./.docker/images/php/error.log:/var/log/apache2/error.log

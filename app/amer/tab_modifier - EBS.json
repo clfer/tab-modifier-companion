@@ -1,0 +1,1927 @@
+{
+    "settings": {
+        "enable_new_version_notification": false
+    },
+    "rules": [
+	    {
+            "name": "dev - akeneo",
+            "detection": "REGEXP",
+            "url_fragment": "dev - akeneo(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/akeneo/akeneo.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - akeneo-mavic",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/akeneo-mavic-preprod.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/akeneo/akeneo-mavic.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - drupal",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev\\.mavic\\.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/drupal/drupal.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - drupal-EMEA",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev\\.mavic\\.com\\/(de-at|fr-be|en-be|en-fi|fr-fr|de-de|it-it|fr-lu|de-lu|en-nl|es-es|de-ch|fr-ch|it-ch|en-gb)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/drupal/drupal-EMEA.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - drupal-US",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev\\.mavic\\.com\\/(ja-jp|ko-kr|en-ca|fr-ca|en-us|en-int)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/drupal/drupal-US.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - jenkins",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/preprod-jenkins.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/jenkins/jenkins.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-EMEA-1",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento-EMEA-1(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento/magento-EMEA-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-EMEA-2",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento-EMEA-2(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento/magento-EMEA-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-EMEA-3",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento-EMEA-3(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento/magento-EMEA-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-EMEA-4",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev-shop\\.mavic\\.com\\/(de-at|fr-be|en-be|en-fi|fr-fr|de-de|it-it|fr-lu|de-lu|en-nl|es-es|de-ch|fr-ch|it-ch|en-gb)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento/magento-EMEA-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-EMEA-5",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento-EMEA-5(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento/magento-EMEA-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-EMEA",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento-EMEA(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento/magento-EMEA.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-US-1",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento-US-1(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento/magento-US-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-US-2",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento-US-2(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento/magento-US-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-US-3",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev-shop\\.mavic\\.com\\/(ja-jp|ko-kr|en-ca|fr-ca|en-us|en-int)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento/magento-US-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-US-4",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento-US-4(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento/magento-US-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-US-5",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento-US-5(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento/magento-US-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-US",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento-US(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento/magento-US.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento/magento.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-admin-EMEA-1",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev-emea1-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento-admin/magento-admin-EMEA-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-admin-EMEA-2",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev-emea2-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento-admin/magento-admin-EMEA-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-admin-EMEA-3",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev-emea3-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento-admin/magento-admin-EMEA-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-admin-EMEA-4",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev-emea4-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento-admin/magento-admin-EMEA-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-admin-EMEA-5",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev-emea5-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento-admin/magento-admin-EMEA-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-admin-EMEA",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento-admin-EMEA(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento-admin/magento-admin-EMEA.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-admin-US-1",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev-us1-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento-admin/magento-admin-US-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-admin-US-2",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev-us2-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento-admin/magento-admin-US-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-admin-US-3",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev-us3-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento-admin/magento-admin-US-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-admin-US-4",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev-us4-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento-admin/magento-admin-US-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-admin-US-5",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/dev-us5-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento-admin/magento-admin-US-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-admin-US",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento-admin-US(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento-admin/magento-admin-US.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "dev - magento-admin",
+            "detection": "REGEXP",
+            "url_fragment": "dev - magento-admin(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/dev/magento-admin/magento-admin.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - akeneo",
+            "detection": "REGEXP",
+            "url_fragment": "local - akeneo(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/akeneo/akeneo.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - akeneo-mavic",
+            "detection": "REGEXP",
+            "url_fragment": "local - akeneo-mavic(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/akeneo/akeneo-mavic.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - drupal",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/local\\.mavic\\.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/drupal/drupal.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - drupal-EMEA",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/local\\.mavic\\.com\\/(de-at|fr-be|en-be|en-fi|fr-fr|de-de|it-it|fr-lu|de-lu|en-nl|es-es|de-ch|fr-ch|it-ch|en-gb)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/drupal/drupal-EMEA.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - drupal-US",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/local\\.mavic\\.com\\/(ja-jp|ko-kr|en-ca|fr-ca|en-us|en-int)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/drupal/drupal-US.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - jenkins",
+            "detection": "REGEXP",
+            "url_fragment": "local - jenkins(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/jenkins/jenkins.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-EMEA-1",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento-EMEA-1(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento/magento-EMEA-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-EMEA-2",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento-EMEA-2(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento/magento-EMEA-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-EMEA-3",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento-EMEA-3(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento/magento-EMEA-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-EMEA-4",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/localhost\\.mavic\\.com\\/(de-at|fr-be|en-be|en-fi|fr-fr|de-de|it-it|fr-lu|de-lu|en-nl|es-es|de-ch|fr-ch|it-ch|en-gb)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento/magento-EMEA-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-EMEA-5",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento-EMEA-5(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento/magento-EMEA-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-EMEA",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento-EMEA(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento/magento-EMEA.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-US-1",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento-US-1(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento/magento-US-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-US-2",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento-US-2(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento/magento-US-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-US-3",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/localhost\\.mavic\\.com\\/(ja-jp|ko-kr|en-ca|fr-ca|en-us|en-int)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento/magento-US-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-US-4",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento-US-4(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento/magento-US-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-US-5",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento-US-5(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento/magento-US-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-US",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento-US(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento/magento-US.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento/magento.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-admin-EMEA-1",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/admin.localhost.emea1.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento-admin/magento-admin-EMEA-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-admin-EMEA-2",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/admin.localhost.emea2.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento-admin/magento-admin-EMEA-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-admin-EMEA-3",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/admin.localhost.emea3.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento-admin/magento-admin-EMEA-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-admin-EMEA-4",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/admin.localhost.emea4.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento-admin/magento-admin-EMEA-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-admin-EMEA-5",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/admin.localhost.emea5.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento-admin/magento-admin-EMEA-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-admin-EMEA",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento-admin-EMEA(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento-admin/magento-admin-EMEA.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-admin-US-1",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/admin.localhost.us1.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento-admin/magento-admin-US-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-admin-US-2",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/admin.localhost.us2.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento-admin/magento-admin-US-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-admin-US-3",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/admin.localhost.us3.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento-admin/magento-admin-US-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-admin-US-4",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/admin.localhost.us4.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento-admin/magento-admin-US-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-admin-US-5",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/admin.localhost.us5.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento-admin/magento-admin-US-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-admin-US",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento-admin-US(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento-admin/magento-admin-US.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "local - magento-admin",
+            "detection": "REGEXP",
+            "url_fragment": "local - magento-admin(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/local/magento-admin/magento-admin.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - akeneo",
+            "detection": "REGEXP",
+            "url_fragment": "prod - akeneo(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/akeneo/akeneo.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - akeneo-mavic",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/akeneo-mavic.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/akeneo/akeneo-mavic.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - drupal",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/www\\.mavic\\.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/drupal/drupal.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - drupal-EMEA",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/www\\.mavic\\.com\\/(de-at|fr-be|en-be|en-fi|fr-fr|de-de|it-it|fr-lu|de-lu|en-nl|es-es|de-ch|fr-ch|it-ch|en-gb)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/drupal/drupal-EMEA.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - drupal-US",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/www\\.mavic\\.com\\/(ja-jp|ko-kr|en-ca|fr-ca|en-us|en-int)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/drupal/drupal-US.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - jenkins",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/prod-jenkins.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/jenkins/jenkins.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-EMEA-1",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento-EMEA-1(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento/magento-EMEA-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-EMEA-2",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento-EMEA-2(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento/magento-EMEA-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-EMEA-3",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento-EMEA-3(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento/magento-EMEA-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-EMEA-4",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/shop\\.mavic\\.com\\/(de-at|fr-be|en-be|en-fi|fr-fr|de-de|it-it|fr-lu|de-lu|en-nl|es-es|de-ch|fr-ch|it-ch|en-gb)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento/magento-EMEA-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-EMEA-5",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento-EMEA-5(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento/magento-EMEA-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-EMEA",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento-EMEA(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento/magento-EMEA.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-US-1",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento-US-1(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento/magento-US-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-US-2",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento-US-2(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento/magento-US-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-US-3",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/shop\\.mavic\\.com\\/(ja-jp|ko-kr|en-ca|fr-ca|en-us|en-int)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento/magento-US-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-US-4",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento-US-4(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento/magento-US-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-US-5",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento-US-5(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento/magento-US-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-US",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento-US(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento/magento-US.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento/magento.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-admin-EMEA-1",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/emea1-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento-admin/magento-admin-EMEA-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-admin-EMEA-2",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/emea2-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento-admin/magento-admin-EMEA-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-admin-EMEA-3",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/emea3-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento-admin/magento-admin-EMEA-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-admin-EMEA-4",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/emea4-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento-admin/magento-admin-EMEA-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-admin-EMEA-5",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/emea5-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento-admin/magento-admin-EMEA-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-admin-EMEA",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento-admin-EMEA(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento-admin/magento-admin-EMEA.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-admin-US-1",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/us1-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento-admin/magento-admin-US-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-admin-US-2",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/us2-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento-admin/magento-admin-US-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-admin-US-3",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/us3-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento-admin/magento-admin-US-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-admin-US-4",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/us4-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento-admin/magento-admin-US-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-admin-US-5",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/us5-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento-admin/magento-admin-US-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-admin-US",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento-admin-US(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento-admin/magento-admin-US.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "prod - magento-admin",
+            "detection": "REGEXP",
+            "url_fragment": "prod - magento-admin(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/prod/magento-admin/magento-admin.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - akeneo",
+            "detection": "REGEXP",
+            "url_fragment": "staging - akeneo(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/akeneo/akeneo.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - akeneo-mavic",
+            "detection": "REGEXP",
+            "url_fragment": "staging - akeneo-mavic(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/akeneo/akeneo-mavic.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - drupal",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stg\\.mavic\\.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/drupal/drupal.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - drupal-EMEA",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stg\\.mavic\\.com\\/(de-at|fr-be|en-be|en-fi|fr-fr|de-de|it-it|fr-lu|de-lu|en-nl|es-es|de-ch|fr-ch|it-ch|en-gb)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/drupal/drupal-EMEA.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - drupal-US",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stg\\.mavic\\.com\\/(ja-jp|ko-kr|en-ca|fr-ca|en-us|en-int)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/drupal/drupal-US.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - jenkins",
+            "detection": "REGEXP",
+            "url_fragment": "staging - jenkins(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/jenkins/jenkins.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-EMEA-1",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento-EMEA-1(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento/magento-EMEA-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-EMEA-2",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento-EMEA-2(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento/magento-EMEA-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-EMEA-3",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento-EMEA-3(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento/magento-EMEA-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-EMEA-4",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stag-shop\\.mavic\\.com\\/(de-at|fr-be|en-be|en-fi|fr-fr|de-de|it-it|fr-lu|de-lu|en-nl|es-es|de-ch|fr-ch|it-ch|en-gb)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento/magento-EMEA-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-EMEA-5",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento-EMEA-5(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento/magento-EMEA-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-EMEA",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento-EMEA(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento/magento-EMEA.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-US-1",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento-US-1(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento/magento-US-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-US-2",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento-US-2(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento/magento-US-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-US-3",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stag\\.mavic\\.com\\/(ja-jp|ko-kr|en-ca|fr-ca|en-us|en-int)(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento/magento-US-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-US-4",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento-US-4(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento/magento-US-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-US-5",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento-US-5(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento/magento-US-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-US",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento-US(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento/magento-US.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento/magento.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-admin-EMEA-1",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stag-emea1-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento-admin/magento-admin-EMEA-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-admin-EMEA-2",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stag-emea2-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento-admin/magento-admin-EMEA-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-admin-EMEA-3",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stag-emea3-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento-admin/magento-admin-EMEA-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-admin-EMEA-4",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stag-emea4-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento-admin/magento-admin-EMEA-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-admin-EMEA-5",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stag-emea5-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento-admin/magento-admin-EMEA-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-admin-EMEA",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento-admin-EMEA(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento-admin/magento-admin-EMEA.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-admin-US-1",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stag-us1-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento-admin/magento-admin-US-1.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-admin-US-2",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stag-us2-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento-admin/magento-admin-US-2.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-admin-US-3",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stag-us3-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento-admin/magento-admin-US-3.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-admin-US-4",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stag-us4-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento-admin/magento-admin-US-4.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-admin-US-5",
+            "detection": "REGEXP",
+            "url_fragment": ".*?\\:\\/\\/stag-us5-admin.amersports.com(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento-admin/magento-admin-US-5.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-admin-US",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento-admin-US(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento-admin/magento-admin-US.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        },
+        {
+            "name": "staging - magento-admin",
+            "detection": "REGEXP",
+            "url_fragment": "staging - magento-admin(.*)",
+            "tab": {
+                "icon": "http://192.168.99.100:8989/amer/icons_generated/staging/magento-admin/magento-admin.png",
+                "muted": false,
+                "pinned": false,
+                "protected": false,
+                "title": null,
+                "title_matcher": null,
+                "unique": false,
+                "url_matcher": null
+            }
+        }
+    ]
+}

@@ -1,0 +1,140 @@
+{
+  "icons_dir": "./icons_original",
+  "icons_generation_dir": "./icons_generated",
+  "environments": {
+    "local": {
+      "color": "#00abba"
+    },
+    "dev": {
+      "color": "#00ba44"
+    },
+    "staging": {
+      "color": "#ebba3d"
+    },
+    "prod": {
+      "color": "#ba0700"
+    }
+  },
+  "apps": {
+    "drupal": {
+      "original_icon": "app/drupal-favicon.png",
+      "original_color": "#0073BA",
+      "variations": {
+        "US": "US",
+        "EMEA": "EMEA"
+      }
+    },
+    "magento": {
+      "original_icon": "app/magento-favicon.png",
+      "original_color": "#F16323",
+      "variations": {
+        "US": "US-multi",
+        "EMEA": "EMEA-multi"
+      }
+    },
+    "magento-admin": {
+      "original_icon": "app/favicon-amer-admin-yellow.png",
+      "original_color": "#FFC601",
+      "variations": {
+        "US": "US-multi",
+        "EMEA": "EMEA-multi"
+      }
+    },
+    "jenkins": {
+      "original_icon": "app/favicon-jenkins-yellow.png",
+      "original_color": "#FFCF6D"
+    },
+    "akeneo": {
+      "original_icon": "app/favicon-akeneo-32x32.png",
+      "original_color": "#642789",
+      "variations": {
+        "mavic": "mavic"
+      }
+    }
+  },
+  "variations": {
+    "US": {
+      "type": "merge",
+      "options": {
+        "path": "./icons_original/flags/favicon-us-16.png",
+        "position": "top-left",
+        "margin": 1
+      }
+    },
+    "US-multi": {
+      "type": "merge",
+      "options": {
+        "path": "./icons_original/flags/favicon-us-16.png",
+        "position": "top-left",
+        "margin": 1
+      },
+      "variations": {
+        "": "multi"
+      }
+    },
+    "EMEA": {
+      "type": "merge",
+      "options": {
+        "path": "./icons_original/flags/favicon-eu-16.png",
+        "position": "top-left",
+        "margin": 1
+      }
+    },
+    "mavic": {
+      "type": "merge",
+      "options": {
+        "path": "./icons_original/flags/favicon-mavic-16x16.png",
+        "position": "top-left",
+        "margin": 1
+      }
+    },
+    "EMEA-multi": {
+      "type": "merge",
+      "options": {
+        "path": "./icons_original/flags/favicon-eu-16.png",
+        "position": "top-left",
+        "margin": 1
+      },
+      "variations": {
+        "": "multi"
+      }
+    },
+    "multi": {
+      "1": {
+        "type": "text",
+        "options": {
+          "position": "top-right",
+          "text": "1"
+        }
+      },
+      "2": {
+        "type": "text",
+        "options": {
+          "position": "top-right",
+          "text": "2"
+        }
+      },
+      "3": {
+        "type": "text",
+        "options": {
+          "position": "top-right",
+          "text": "3"
+        }
+      },
+      "4": {
+        "type": "text",
+        "options": {
+          "position": "top-right",
+          "text": "4"
+        }
+      },
+      "5": {
+        "type": "text",
+        "options": {
+          "position": "top-right",
+          "text": "5"
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "icons_generation_dir": "./icons_generated_Object",
+  "icons_generation_dir": "./icons_generated_import",
   "environments": {
     "local": {
       "label": "local",
@@ -16,6 +16,10 @@
     "prod": {
       "label": "prod",
       "color": "#ba0700"
+    },
+    "mavic_import": {
+      "label": "mavic_import",
+      "color": "#9900cc"
     }
   },
   "apps": {
@@ -27,6 +31,11 @@
         "EMEA": "EMEA"
       }
     },
+    "mavic": {
+      "label": "mavic",
+      "original_icon": "./icons_original/app/favicon-mavic-32x32.png",
+      "variations": {}
+    },
     "magento": {
       "label": "magento",
       "original_icon": "./icons_original/app/magento-favicon.png",
@@ -35,9 +44,22 @@
         "EMEA": "EMEA-multi"
       }
     },
+    "magento-admin": {
+      "original_icon": "./icons_original/app/favicon-amer-admin-yellow.png",
+      "variations": {
+        "US": "US-multi",
+        "EMEA": "EMEA-multi"
+      }
+    },
     "jenkins": {
       "label": "jenkins",
       "original_icon": "./icons_original/app/favicon-jenkins-yellow.png"
+    },
+    "akeneo": {
+      "original_icon": "./icons_original/app/favicon-akeneo-32x32.png",
+      "variations": {
+        "mavic": "mavic"
+      }
     }
   },
   "variations": {
@@ -70,6 +92,14 @@
       "type": "merge",
       "options": {
         "path": "./icons_original/flags/favicon-eu-16.png",
+        "position": "top-left",
+        "margin": 1
+      }
+    },
+    "mavic": {
+      "type": "merge",
+      "options": {
+        "path": "./icons_original/flags/favicon-mavic-16x16.png",
         "position": "top-left",
         "margin": 1
       }
