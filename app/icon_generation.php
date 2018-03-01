@@ -17,12 +17,18 @@ function _load_conf($conf_path) {
  *
  * @return array an array with the generated icons path
  */
-function icon_generation($conf_path) {
+function icon_generation($conf_path, $keep = FALSE) {
   _load_conf($conf_path);
 
   global $conf;
 
   $generated_icons_list = array();
+
+  $icons_generation_dir = $conf['icons_generation_dir'];
+
+  if (!$keep) {
+    _delete_dir($icons_generation_dir);
+  }
 
   foreach ($conf['apps'] as $app_code => $app_info) {
     $app_info_path = $conf['icons_dir'] . '/' . $app_info['original_icon'];
@@ -44,7 +50,7 @@ function icon_generation($conf_path) {
       $delta_hue = $colorize_hue - $base_hue;
       imagehue($base_layer, $delta_hue * 360);
 
-      $env_generated_dir = "{$conf['icons_generation_dir']}/$env_code/$app_code";
+      $env_generated_dir = "$icons_generation_dir/$env_code/$app_code";
 
       // Save image
       $colorized_icon_path = imagepng_save($base_layer, $env_generated_dir, $app_code);
@@ -78,7 +84,7 @@ function icon_generation($conf_path) {
  *
  * @return array|FALSE
  */
-function imagevariation_apply($base_layer_path, $target_dir, $variation_label, $variation) {
+function imagevariation_apply($base_layer_path, $target_dir, $variation_label, $variation, $no_subfolder = TRUE) {
   global $conf;
   $new_generated_icon_path = FALSE;
 
@@ -86,16 +92,22 @@ function imagevariation_apply($base_layer_path, $target_dir, $variation_label, $
     $variation = $conf['variations'][$variation];
   }
 
-  $variation_target_dir = $target_dir . '/' . $variation_label;
+  if ($no_subfolder) {
+    $variation_name = basename($target_dir) . '-' . $variation_label;
+    $variation_target_dir = $target_dir;
+  }
+  else {
+    $variation_name = $variation_label;
+    $variation_target_dir = $target_dir . '/' . $variation_label;
+  }
+
   if (is_array($variation)) {
     if (isset($variation['type'])) {
       $variation_type = $variation['type'];
       $options = $variation['options'];
     }
     else {
-      foreach ($variation as $subvariation_label => $subvariation) {
-        $new_generated_icon_path[$subvariation_label] = imagevariation_apply($base_layer_path, $variation_target_dir, $subvariation_label, $subvariation);
-      }
+      imagesubvariation_apply($base_layer_path, $variation_label, $variation, $variation_target_dir, $new_generated_icon_path, $no_subfolder);
     }
   }
 
@@ -108,17 +120,36 @@ function imagevariation_apply($base_layer_path, $target_dir, $variation_label, $
 
     call_user_func($imagevariation_function, $base_layer, $options);
 
-    $new_icon_path = imagepng_save($base_layer, $variation_target_dir, $variation_label);
+    $new_icon_path = imagepng_save($base_layer, $variation_target_dir, $variation_name);
     $new_generated_icon_path[''] = $new_icon_path;
-  }
 
-  if (!empty($variation['variations'])) {
-    foreach ($variation['variations'] as $subvariation_label => $subvariation) {
-      $new_generated_icon_path[$subvariation_label] = imagevariation_apply($new_icon_path, $variation_target_dir, $subvariation_label, $subvariation);
+    if (!empty($variation['variations'])) {
+      imagesubvariation_apply($new_icon_path, $variation_label, $variation['variations'], $variation_target_dir, $new_generated_icon_path, $no_subfolder);
     }
   }
 
   return $new_generated_icon_path;
+}
+
+/**
+ * @param $base_layer_path
+ * @param $variation_label
+ * @param $subvariations
+ * @param $variation_target_dir
+ * @param $new_generated_icon_path
+ */
+function imagesubvariation_apply($base_layer_path, $variation_label, $subvariations, $variation_target_dir, &$new_generated_icon_path, $no_subfolder) {
+
+  foreach ($subvariations as $subvariation_label => $subvariation) {
+    $subvariation_name = !empty($subvariation_label) ? $variation_label . '-' . $subvariation_label : $variation_label;
+    $subvariation_icon_path = imagevariation_apply($base_layer_path, $variation_target_dir, $subvariation_name, $subvariation, $no_subfolder);
+    $subvariation_key = $subvariation_label;
+    $i = 1;
+    while (isset($new_generated_icon_path[$subvariation_key])) {
+      $subvariation_key = $subvariation_label . '(' . $i++ . ')';
+    }
+    $new_generated_icon_path[$subvariation_key] = $subvariation_icon_path;
+  }
 }
 
 /**
@@ -574,4 +605,27 @@ function hsl2rgb($h, $s, $v) {
     $g,
     $B,
   );
+}
+
+/**
+ * Recursively delete a file
+ *
+ * @param $dir_path
+ *
+ * @see https://stackoverflow.com/a/3349792
+ *
+ */
+function _delete_dir($dir_path) {
+  $it = new RecursiveDirectoryIterator($dir_path, RecursiveDirectoryIterator::SKIP_DOTS);
+  $files = new RecursiveIteratorIterator($it,
+    RecursiveIteratorIterator::CHILD_FIRST);
+  foreach ($files as $file) {
+    if ($file->isDir()) {
+      rmdir($file->getRealPath());
+    }
+    else {
+      unlink($file->getRealPath());
+    }
+  }
+  rmdir($dir_path);
 }

@@ -54,7 +54,7 @@
         "margin": 1
       },
       "variations": {
-        "multi": "multi"
+        "": "multi"
       }
     },
     "EMEA": {
@@ -73,7 +73,7 @@
         "margin": 1
       },
       "variations": {
-        "multi": "multi"
+        "": "multi"
       }
     },
     "multi": {
