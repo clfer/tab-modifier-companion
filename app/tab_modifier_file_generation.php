@@ -36,13 +36,66 @@ class tabModifierRule {
   }
 }
 
-print_r($_SERVER);
-echo '<br><br>';
 $rules = array();
-$server_url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'];
-if (($_SERVER['REQUEST_SCHEME'] == 'http' && $_SERVER['SERVER_PORT'] != '80') || ($_SERVER['REQUEST_SCHEME'] == 'https' && $_SERVER['SERVER_PORT'] != '443')) {
-  $server_url .= ':' . $_SERVER['SERVER_PORT'];
+$server_url = _get_basepath();
+
+$icon_list = _read_dir('icons_generated');
+
+foreach ($icon_list as $rule_name => $icon_path) {
+  $rules[] = new tabModifierRule($rule_name, NULL, '', array('icon' => $server_url . '/' . $icon_path));
 }
-$rules[] = new tabModifierRule('Plop', NULL, 'plop', array('icon' => $server_url . '/app/icons_generated/dev/drupal/drupal.png'));
-$rules[] = new tabModifierRule('Plip', NULL, 'plip', array('icon' => $server_url . '/app/icons_generated/dev/magento/magento.png'));
-echo '<pre>' . json_encode(array('rules' => $rules), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . '</pre>';
+
+_json_rules_deliver($rules);
+
+
+//====== Helper functions ======
+/**
+ * @param $rules
+ */
+function _json_rules_deliver($rules) {
+  header('Content-Type: application/json');
+  header('Content-Disposition: inline; filename="tab-modifier-companion-rules.json"');
+  echo _get_json_rules($rules);
+}
+
+/**
+ * @param $rules
+ * @return string
+ */
+function _get_json_rules($rules) {
+  return json_encode(array('rules' => $rules), JSON_UNESCAPED_SLASHES);
+}
+
+
+/**
+ * @return string
+ */
+function _get_basepath() {
+  $server_url = $_SERVER['REQUEST_SCHEME'] . '://' . $_SERVER['SERVER_NAME'];
+  if (($_SERVER['REQUEST_SCHEME'] == 'http' && $_SERVER['SERVER_PORT'] != '80') || ($_SERVER['REQUEST_SCHEME'] == 'https' && $_SERVER['SERVER_PORT'] != '443')) {
+    $server_url .= ':' . $_SERVER['SERVER_PORT'];
+  }
+  return $server_url;
+}
+
+
+function _read_dir($dir_path) {
+  $icon_list = array();
+
+  $it = new RecursiveDirectoryIterator($dir_path, RecursiveDirectoryIterator::SKIP_DOTS);
+  $files = new RecursiveIteratorIterator($it,
+    RecursiveIteratorIterator::CHILD_FIRST);
+  foreach ($files as $file) {
+    if (!$file->isDir()) {
+      $rule_name = explode('/', $file->getPath());
+      array_shift($rule_name);
+      array_pop($rule_name);
+      $basename = $file->getBasename('.' . $file->getExtension());
+      $rule_name[] = $basename;
+      $rule_name = implode(' - ', $rule_name);
+
+      $icon_list[$rule_name] = $file->getPathname();
+    }
+  }
+  return $icon_list;
+}
