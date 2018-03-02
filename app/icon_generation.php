@@ -48,7 +48,8 @@ function icon_generation($conf_path, $keep = FALSE) {
       //--- Translate color ---
       list($colorize_hue, $colorize_saturation, $colorize_value) = hex2hsl($env_info['color']);
       $delta_hue = $colorize_hue - $base_hue;
-      imagehue($base_layer, $delta_hue * 360);
+      $delta_value = $colorize_value - $base_value;
+      imagehue($base_layer, $delta_hue * 360, NULL ,$delta_value);
 
       $env_generated_dir = "$icons_generation_dir/$env_code/$app_code";
 
@@ -448,7 +449,7 @@ function hsl2hex($h, $s, $v) {
  * @param $image resource
  * @param $angle number
  */
-function imagehue(&$image, $angle) {
+function imagehue(&$image, $angle, $delta_s = NULL, $delta_l = NULL) {
   if ($angle % 360 == 0) {
     return;
   }
@@ -468,11 +469,15 @@ function imagehue(&$image, $angle) {
         $h--;
       }
 
-      if (isset($delta_s)) {
-        $s = $s * $delta_s;
+      if (isset($delta_s)&& $delta_s > 0) {
+        $s = $s + $delta_s;
+        $s = min($s, 1);
+        $s = max($s, 0);
       }
-      if (isset($delta_l)) {
-        $l = $l * $delta_l;
+      if (isset($delta_l) && $delta_l > 0 ) {
+        $l = $l + $delta_l;
+        $l = min($l, 1);
+        $l = max($l, 0);
       }
 
       list($r, $g, $b) = hsl2rgb($h, $s, $l);
