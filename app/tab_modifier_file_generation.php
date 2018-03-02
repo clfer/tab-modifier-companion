@@ -42,7 +42,7 @@ $server_url = _get_basepath();
 $icon_list = _read_dir('icons_generated');
 
 foreach ($icon_list as $rule_name => $icon_path) {
-  $rules[] = new tabModifierRule($rule_name, NULL, '', array('icon' => $server_url . '/' . $icon_path));
+  $rules[] = new tabModifierRule($rule_name, 'REGEXP', $rule_name.'(.*)', array('icon' => $server_url . '/' . $icon_path));
 }
 
 _json_rules_deliver($rules);
