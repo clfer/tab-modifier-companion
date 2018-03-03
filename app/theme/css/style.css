@@ -1,0 +1,15 @@
+
+table {
+    text-align: center;
+    width: 100%;
+}
+
+table, tr, td {
+    border-collapse: collapse;
+    padding: 0;
+}
+
+td {
+    border: 1px solid black;
+}
+
