@@ -18,7 +18,6 @@
   "apps": {
     "drupal": {
       "original_icon": "app/drupal-favicon.png",
-      "original_color": "#0073BA",
       "variations": {
         "US": "US",
         "EMEA": "EMEA"
@@ -26,15 +25,13 @@
     },
     "magento": {
       "original_icon": "app/magento-favicon.png",
-      "original_color": "#F16323",
       "variations": {
         "US-multi": "US-multi",
         "EMEA": "EMEA-multi"
       }
     },
     "jenkins": {
-      "original_icon": "app/favicon-jenkins-yellow.png",
-      "original_color": "#FFCF6D"
+      "original_icon": "app/favicon-jenkins-yellow.png"
     }
   },
   "variations": {

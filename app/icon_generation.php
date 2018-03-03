@@ -1,4 +1,6 @@
 <?php
+require_once 'vendor/autoload.php';
+use ColorThief\ColorThief;
 
 /**
  * @param $conf_path string path to the conf file to load
@@ -32,9 +34,8 @@ function icon_generation($conf_path, $keep = FALSE) {
 
   foreach ($conf['apps'] as $app_code => $app_info) {
     $app_info_path = $conf['icons_dir'] . '/' . $app_info['original_icon'];
-    //    $base_color = getpngbasecolor($app_info['original_icon']);
-    $base_color = $app_info['original_color'];
-    list($base_hue, $base_saturation, $base_value) = hex2hsl($base_color);
+    list($r,$g,$b) = ColorThief::getColor($app_info_path, 1);
+    list($base_hue, $base_saturation, $base_value) = rgb2hsl($r,$g,$b);
 
     $generated_icons_list[''][$app_code] = $app_info_path;
 
