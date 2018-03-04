@@ -7,6 +7,11 @@ namespace Composer\Autoload;
 class ComposerStaticInita64af9186e2201be2c3f0312ee0a1f44
 {
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'TabModifierCompanion\\Model\\Variation\\' => 37,
+            'TabModifierCompanion\\Model\\' => 27,
+        ),
         'C' => 
         array (
             'ColorThief\\' => 11,
@@ -14,6 +19,14 @@ class ComposerStaticInita64af9186e2201be2c3f0312ee0a1f44
     );
 
     public static $prefixDirsPsr4 = array (
+        'TabModifierCompanion\\Model\\Variation\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/model/Variation',
+        ),
+        'TabModifierCompanion\\Model\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/model',
+        ),
         'ColorThief\\' => 
         array (
             0 => __DIR__ . '/..' . '/ksubileau/color-thief-php/lib/ColorThief',

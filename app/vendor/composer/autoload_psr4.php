@@ -6,5 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'TabModifierCompanion\\Model\\Variation\\' => array($baseDir . '/model/Variation'),
+    'TabModifierCompanion\\Model\\' => array($baseDir . '/model'),
     'ColorThief\\' => array($vendorDir . '/ksubileau/color-thief-php/lib/ColorThief'),
 );
