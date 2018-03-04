@@ -3,7 +3,7 @@
 namespace TabModifierCompanion\Model;
 
 
-class IconsSet {
+class AppIcon {
 
   public $label;
 

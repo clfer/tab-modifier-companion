@@ -19,7 +19,7 @@ class Config {
   /**
    * @var array
    */
-  public static $iconsSets;
+  public static $appIcons;
 
   /**
    * @var array
@@ -90,15 +90,15 @@ class Config {
   /**
    * @return array
    */
-  public static function getIconsSets() {
-    return static::$iconsSets;
+  public static function getAppIcons() {
+    return static::$appIcons;
   }
 
   /**
-   * @param array $iconsSets
+   * @param array $appIcons
    */
-  public static function setIconsSets($iconsSets) {
-    static::$iconsSets = $iconsSets;
+  public static function setAppIcons($appIcons) {
+    static::$appIcons = $appIcons;
   }
 
 
@@ -106,158 +106,6 @@ class Config {
 
     $json_raw = file_get_contents($json_path);
     $conf = json_decode($json_raw, TRUE);
-
-    $conf = [
-      'icons_dir' => './icons_original',
-      'icons_generation_dir' => './icons_generated',
-      'environments' =>
-        [
-          'local' =>
-            [
-              'color' => '#703293',
-            ],
-          'dev' =>
-            [
-              'color' => '#00ba44',
-            ],
-          'staging' =>
-            [
-              'color' => '#ebba3d',
-            ],
-          'prod' =>
-            [
-              'color' => '#ba0700',
-            ],
-        ],
-      'apps' =>
-        [
-          'drupal' =>
-            [
-              'original_icon' => 'app/drupal-favicon.png',
-              'variations' =>
-                [
-                  'US' => 'US',
-                  'EMEA' => 'EMEA',
-                ],
-            ],
-          'akeneo' =>
-            [
-              'original_icon' => 'app/favicon-akeneo-32x32.png',
-            ],
-          'magento' =>
-            [
-              'original_icon' => 'app/magento-favicon.png',
-              'variations' =>
-                [
-                  'US-multi' => 'US-multi',
-                  'EMEA' => 'EMEA-multi',
-                ],
-            ],
-          'jenkins' =>
-            [
-              'original_icon' => 'app/favicon-jenkins-yellow.png',
-            ],
-        ],
-      'variations' =>
-        [
-          'US' =>
-            [
-              'type' => 'merge',
-              'options' =>
-                [
-                  'path' => './icons_original/flags/favicon-us-16.png',
-                  'position' => 'top-left',
-                  'margin' => 1,
-                ],
-            ],
-          'US-multi' =>
-            [
-              'type' => 'merge',
-              'options' =>
-                [
-                  'path' => './icons_original/flags/favicon-us-16.png',
-                  'position' => 'top-left',
-                  'margin' => 1,
-                ],
-              'variations' =>
-                [
-                  '' => 'multi',
-                ],
-            ],
-          'EMEA' =>
-            [
-              'type' => 'merge',
-              'options' =>
-                [
-                  'path' => './icons_original/flags/favicon-eu-16.png',
-                  'position' => 'top-left',
-                  'margin' => 1,
-                ],
-            ],
-          'EMEA-multi' =>
-            [
-              'type' => 'merge',
-              'options' =>
-                [
-                  'path' => './icons_original/flags/favicon-eu-16.png',
-                  'position' => 'top-left',
-                  'margin' => 1,
-                ],
-              'variations' =>
-                [
-                  '' => 'multi',
-                ],
-            ],
-          'multi' =>
-            [
-              1 =>
-                [
-                  'type' => 'text',
-                  'options' =>
-                    [
-                      'position' => 'top-right',
-                      'text' => '1',
-                    ],
-                ],
-              2 =>
-                [
-                  'type' => 'text',
-                  'options' =>
-                    [
-                      'position' => 'top-right',
-                      'text' => '2',
-                    ],
-                ],
-              3 =>
-                [
-                  'type' => 'text',
-                  'options' =>
-                    [
-                      'position' => 'top-right',
-                      'text' => '3',
-                    ],
-                ],
-              4 =>
-                [
-                  'type' => 'text',
-                  'options' =>
-                    [
-                      'position' => 'top-right',
-                      'text' => '4',
-                    ],
-                ],
-              5 =>
-                [
-                  'type' => 'text',
-                  'options' =>
-                    [
-                      'position' => 'top-right',
-                      'text' => '5',
-                    ],
-                ],
-            ],
-        ],
-    ];
 
     static::$icons_generation_dir = $conf['icons_generation_dir'];
 
@@ -268,7 +116,7 @@ class Config {
     self::setEnvironments($environments);
 
     foreach ($conf['apps'] as $app_label => $app) {
-      static::$iconsSets[$app_label] = new IconsSet($app_label, $app['original_icon'], $app['variations']);
+      static::$appIcons[$app_label] = new AppIcon($app_label, $app['original_icon'], $app['variations']);
     }
 
     foreach ($conf['variations'] as $variation_label => $variation) {
@@ -292,7 +140,7 @@ class Config {
     return [
       'icons_generation_dir' => static::$icons_generation_dir,
       'environments' => static::$environments,
-      'apps' => static::$iconsSets,
+      'apps' => static::$appIcons,
       'variations' => static::$namedVariations,
     ];
   }
