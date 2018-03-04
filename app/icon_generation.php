@@ -16,10 +16,11 @@ function _load_conf($conf_path) {
 
 /**
  * @param $conf_path string path to the conf file to generate
+ * @param bool $keep Keep the existing folder. Efault to TRUE. Set to FALSE to remove the existing folder before creating the new one.
  *
  * @return array an array with the generated icons path
  */
-function icon_generation($conf_path, $keep = FALSE) {
+function icon_generation($conf_path, $keep = TRUE) {
   _load_conf($conf_path);
 
   global $conf;
@@ -341,15 +342,6 @@ function evenize_up($number) {
  */
 function evenize_down($number) {
   return ceil($number / 2) * 2;
-}
-
-function getpngbasecolor($png_path) {
-  if (strpos($png_path, 'drupal') !== FALSE) {
-    return '#0073BA';
-  }
-  else {
-    return '#FFC601';
-  }
 }
 
 /**
