@@ -5,7 +5,7 @@
 *
 * @return string
 */
-function _print_table($values, $with_header = FALSE) {
+function _print_icons_table($values, $with_header = FALSE) {
 $return = '';
 if (is_array($values)) {
 $return .= '<table>';
@@ -35,7 +35,7 @@ $return .= '<table>';
     $return .= '<tbody>';
 
     foreach ($values as $value_label => $row) {
-    $return .= _print_table_row($value_label, $row, $total_count, $with_header);
+    $return .= _print_icons_table_row($value_label, $row, $total_count, $with_header);
     }
 
     $return .= '</tbody>';
@@ -57,7 +57,7 @@ return $return;
 *
 * @return string
 */
-function _print_table_row($label, $values, $total_colspan, $with_headers = FALSE) {
+function _print_icons_table_row($label, $values, $total_colspan, $with_headers = FALSE) {
 $return = '<tr>';
     $return .= '<td>' . $label . '</td>';
 
@@ -67,7 +67,7 @@ $return = '<tr>';
     if (!empty($subarrays) && !$with_headers) {
 
     $return .= '<td colspan="' . $total_colspan . '">';
-        $return .= _print_table($values);
+        $return .= _print_icons_table($values);
         $return .= '</td>';
     }
     else {
@@ -76,7 +76,7 @@ $return = '<tr>';
     foreach ($values as $value) {
     $return .= '<td colspan="' . $colspan . '">';
         if (is_array($value)) {
-        $return .= _print_table($value);
+        $return .= _print_icons_table($value);
         }
         else {
         $return .= _print_icon($value);
