@@ -17,9 +17,9 @@ class Config {
   public static $environments;
 
   /**
-   * @var \TabModifierCompanion\Model\IconsSet
+   * @var array
    */
-  public static $iconsSet;
+  public static $iconsSets;
 
   /**
    * @var array
@@ -88,17 +88,17 @@ class Config {
   }
 
   /**
-   * @return \TabModifierCompanion\Model\IconsSet
+   * @return array
    */
-  public static function getIconsSet() {
-    return static::$iconsSet;
+  public static function getIconsSets() {
+    return static::$iconsSets;
   }
 
   /**
-   * @param \TabModifierCompanion\Model\IconsSet $iconsSet
+   * @param array $iconsSets
    */
-  public static function setIconsSet($iconsSet) {
-    static::$iconsSet = $iconsSet;
+  public static function setIconsSets($iconsSets) {
+    static::$iconsSets = $iconsSets;
   }
 
 
@@ -268,7 +268,7 @@ class Config {
     self::setEnvironments($environments);
 
     foreach ($conf['apps'] as $app_label => $app) {
-      static::$iconsSet[$app_label] = new IconsSet($app_label, $app['original_icon'], $app['variations']);
+      static::$iconsSets[$app_label] = new IconsSet($app_label, $app['original_icon'], $app['variations']);
     }
 
     foreach ($conf['variations'] as $variation_label => $variation) {
@@ -292,7 +292,7 @@ class Config {
     return [
       'icons_generation_dir' => static::$icons_generation_dir,
       'environments' => static::$environments,
-      'apps' => static::$iconsSet,
+      'apps' => static::$iconsSets,
       'variations' => static::$namedVariations,
     ];
   }
