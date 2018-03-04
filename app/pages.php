@@ -20,19 +20,17 @@ function page_conf() {
   $conf_path = './conf/example.conf.json';
   Config::load($conf_path);
 
-  $id = 'config-accordion';
-  $panels['config'] = [
+  $variables['id'] = 'config-accordion';
+  $variables['panels']['config'] = [
     'title' => 'Config',
     'content' => Config::toHtml(),
   ];
-  $panels['json'] = [
+  $variables['panels']['json'] = [
     'title' => 'Json',
     'content' => '<pre>' . Config::toJson() . '</pre>',
   ];
 
-  ob_start();
-  include 'templates/accordion.tpl.php';
-  $content['body'][] = ob_get_clean();
+  $content['body'][] = theme('accordion', $variables);
 
   return $content;
 }

@@ -1,4 +1,25 @@
 <?php
+
+
+/**
+ * @param $template_name
+ * @param $variables
+ *
+ * @return string
+ */
+function theme($template_name, $variables) {
+  $content = FALSE;
+  $filename = dirname(__FILE__) . '/' . $template_name . '.tpl.php';
+  if (file_exists($filename)) {
+    extract($variables);
+    ob_start();
+    include $filename;
+    $content = ob_get_clean();
+  }
+  return $content;
+}
+
+
 /**
 * @param $values
 * @param bool $with_header
