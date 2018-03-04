@@ -1,9 +1,11 @@
 <?php
+require_once 'vendor/autoload.php';
 require_once 'icon_generation.php';
 require_once 'templates/helpers.php';
 require_once 'pages.php';
 $pages = [
   'icon_generation' => 'Icon generation',
+  'conf' => 'Conf display',
 ]
 ?>
 
@@ -43,9 +45,9 @@ try {
 
 
 } catch (Exception $e) {
-  $content[] = '<h2>Fail...</h2>';
-  $content[] = '<p>Exception: ' . $e->getMessage() . '</p>';
-  $content[] = '<pre>' . $e->getTraceAsString() . '</pre>';
+  $content['body'][] = '<h2>Fail...</h2>';
+  $content['body'][] = '<p>Exception: ' . $e->getMessage() . '</p>';
+  $content['body'][] = '<pre>' . $e->getTraceAsString() . '</pre>';
 
 }
 
