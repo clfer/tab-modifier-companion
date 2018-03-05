@@ -20,17 +20,17 @@ function page_conf() {
   $conf_path = './conf/example.conf.json';
   Config::load($conf_path);
 
-  $variables['id'] = 'config-accordion';
-  $variables['panels']['config'] = [
+  $accordion['id'] = 'config-accordion';
+  $accordion['panels']['config'] = [
     'title' => 'Config',
     'content' => Config::toHtml(),
   ];
-  $variables['panels']['json'] = [
+  $accordion['panels']['json'] = [
     'title' => 'Json',
     'content' => '<pre>' . Config::toJson() . '</pre>',
   ];
 
-  $content['body'][] = theme('accordion', $variables);
+  $content['body'][] = theme('accordion', $accordion);
 
   return $content;
 }
