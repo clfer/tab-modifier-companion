@@ -33,7 +33,7 @@ function icon_generation($conf_path, $keep = TRUE) {
   }
 
   foreach ($conf['apps'] as $app_code => $app_info) {
-    $app_info_path = $conf['icons_dir'] . '/' . $app_info['original_icon'];
+    $app_info_path = $app_info['original_icon'];
     list($r,$g,$b) = ColorThief::getColor($app_info_path, 1);
     list($base_hue, $base_saturation, $base_value) = rgb2hsl($r,$g,$b);
 
