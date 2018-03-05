@@ -1,5 +1,4 @@
 {
-  "icons_dir": "./icons_original",
   "icons_generation_dir": "./icons_generated",
   "environments": {
     "local": {
@@ -17,21 +16,21 @@
   },
   "apps": {
     "drupal": {
-      "original_icon": "app/drupal-favicon.png",
+      "original_icon": "./icons_original/app/drupal-favicon.png",
       "variations": {
         "US": "US",
         "EMEA": "EMEA"
       }
     },
     "magento": {
-      "original_icon": "app/magento-favicon.png",
+      "original_icon": "./icons_original/app/magento-favicon.png",
       "variations": {
         "US-multi": "US-multi",
         "EMEA": "EMEA-multi"
       }
     },
     "jenkins": {
-      "original_icon": "app/favicon-jenkins-yellow.png"
+      "original_icon": "./icons_original/app/favicon-jenkins-yellow.png"
     }
   },
   "variations": {
