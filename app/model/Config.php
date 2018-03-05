@@ -131,25 +131,37 @@ class Config {
 
     $html = '';
 
-    $html .= '<h4> Generated icons target directory: [<i>icons_generation_dir</i>]</h4>';
+    $html .= '<h3> Generated icons target directory:</h3>';
     $html .= '<p><code>' . static::$icons_generation_dir . '</code></p>';
 
-    $html .= '<h4>Environments:</h4>';
-    $html .= '<ul>';
-    foreach (static::$environments as $environment) {
-      $html .= '<li>' . $environment->label . '</li>'; //toHtml() . '</li>';
+    $html .= '<br>';
+    $html .= '<hr>';
+
+    $html .= '<h3>Environments:</h3>';
+    foreach (static::$environments as $environment_machine_name => $environment) {
+      $html .= theme('panel', ['key' => $environment_machine_name, 'title' => $environment_machine_name, 'panel_body_suffix' => $environment->toHtml()]);
     }
-    $html .= '</ul>';
-    $html .= '<h4>Apps:</h4>';
-    $html .= '<ul>';
-    foreach (static::$appIcons as $app_label => $appIcon) {
-      $html .= '<li>';
-      $html .= theme('panel', ['key' => $app_label, 'title' => $app_label, 'panel_body_suffix' => $appIcon->toHtml()]);
-      $html .= '</li>';
+
+    $html .= '<br>';
+    $html .= '<hr>';
+
+    $html .= '<h3>Apps:</h3>';
+    foreach (static::$appIcons as $app_machine_name => $appIcon) {
+      $html .= theme('panel', ['key' => $app_machine_name, 'title' => $app_machine_name, 'panel_body_suffix' => $appIcon->toHtml()]);
     }
-    $html .= '</ul>';
 
     //TODO Find a readable way to display Named variations
+
+
+    $html .= '<br>';
+    $html .= '<hr>';
+
+    $html .= '<h3>Named variations:</h3>';
+    $html .= '<ul>';
+    foreach (static::$namedVariations as $namedVariation_machine_name => $namedVariation) {
+      $html .= '<li><code>' . $namedVariation_machine_name . '</code></li>';
+    }
+    $html .= '</ul>';
 
     return $html;
   }
