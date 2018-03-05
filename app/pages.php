@@ -8,6 +8,7 @@ use TabModifierCompanion\Model\Config;
 function page_icon_generation() {
   $conf_path = './conf/example.conf.json';
   $icons = icon_generation($conf_path);
+  $content['class'] = 'page-icon-generation';
   $content['body'][] = _print_icons_table($icons, TRUE);
 
   return $content;
@@ -32,5 +33,6 @@ function page_conf() {
 
   $content['body'][] = theme('accordion', $accordion);
 
+  $content['class'] = 'page-conf';
   return $content;
 }
