@@ -58,16 +58,18 @@ class Variation implements \JsonSerializable {
         ],
       ];
     }
-    elseif (!empty($variation_info['type'])) {
+    elseif (isset($variation_info['type'])) {
       $type = $variation_info['type'];
     }
     elseif (is_array($variation_info)) {
       $type = '';
-      $variation_info = [
-        'label' => '',
-        'options' => [],
-        'variations' => $variation_info,
-      ];
+      if (!isset($variation_info['variations'])) {
+        $variation_info = [
+          'label' => '',
+          'options' => [],
+          'variations' => $variation_info,
+        ];
+      }
 
     }
     else {
