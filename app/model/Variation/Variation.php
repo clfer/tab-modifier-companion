@@ -10,6 +10,8 @@ namespace TabModifierCompanion\Model\Variation;
  */
 class Variation implements \JsonSerializable {
 
+  public $type = NULL;
+
   /**
    * @var string
    */
@@ -20,7 +22,7 @@ class Variation implements \JsonSerializable {
   /**
    * @var array
    */
-  public $subvariations = [];
+  public $variations = [];
 
   /**
    * Variation constructor.
@@ -32,7 +34,7 @@ class Variation implements \JsonSerializable {
   public function __construct($label = '', $options = [], $subvariations = []) {
     $this->label = $label;
     $this->options = $options;
-    $this->subvariations = $subvariations;
+    $this->variations = $subvariations;
   }
 
   /**
@@ -94,15 +96,15 @@ class Variation implements \JsonSerializable {
   /**
    * @return array
    */
-  public function getSubvariations() {
-    return $this->subvariations;
+  public function getVariations() {
+    return $this->variations;
   }
 
   /**
-   * @param \TabModifierCompanion\Model\Variation\Variation ...$subvariations
+   * @param \TabModifierCompanion\Model\Variation\Variation ...$variations
    */
-  public function setSubvariations(Variation ...$subvariations) {
-    $this->subvariations = $subvariations;
+  public function setVariations(Variation ...$variations) {
+    $this->variations = $variations;
   }
 
   /**
@@ -111,7 +113,7 @@ class Variation implements \JsonSerializable {
    * @return void
    */
   public function getSubvariation($variation_name) {
-    !empty($this->subvariations[$variation_name]) ? $this->subvariations[$variation_name] : FALSE;
+    !empty($this->variations[$variation_name]) ? $this->variations[$variation_name] : FALSE;
   }
 
   /**
@@ -119,7 +121,7 @@ class Variation implements \JsonSerializable {
    * @param \TabModifierCompanion\Model\Variation\Variation|string $subvariation
    */
   public function setSubvariation($variation_name, $subvariation) {
-    $this->subvariations{$variation_name} = $subvariation;
+    $this->variations{$variation_name} = $subvariation;
   }
 
   /**
@@ -175,8 +177,8 @@ class Variation implements \JsonSerializable {
    * @param string $image_path
    */
   function applySubvariations($image_path) {
-    if (!empty($this->subvariations)) {
-      foreach ($this->subvariations as $subvariation) {
+    if (!empty($this->variations)) {
+      foreach ($this->variations as $subvariation) {
         $subvariation->apply($image_path);
       }
     }
@@ -184,7 +186,8 @@ class Variation implements \JsonSerializable {
 
 
   public function jsonSerialize() {
-    return array_filter(array_merge(get_class_vars(get_class($this)), get_object_vars($this)), function ($v) {
+    $fields = array_merge(get_class_vars(get_class($this)), get_object_vars($this));
+    return array_filter($fields, function ($v) {
       return isset($v) && (!is_array($v) || !empty($v));
     });
   }

@@ -3,7 +3,7 @@
 namespace TabModifierCompanion\Model;
 
 
-class AppIcon {
+class AppIcon implements \JsonSerializable {
 
   public $label;
 
@@ -44,5 +44,10 @@ class AppIcon {
 
   }
 
-
+  public function jsonSerialize() {
+    $fields = array_merge(get_class_vars(get_class($this)), get_object_vars($this));
+    return array_filter($fields, function ($v) {
+      return isset($v) && (!is_array($v) || !empty($v));
+    });
+  }
 }

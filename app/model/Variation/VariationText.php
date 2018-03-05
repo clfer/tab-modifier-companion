@@ -10,7 +10,7 @@ namespace TabModifierCompanion\Model\Variation;
  */
 class VariationText extends Variation {
 
-  static public $type = 'text';
+  public $type = 'text';
 
   function apply($image_path) {
     $variation_path = $image_path;

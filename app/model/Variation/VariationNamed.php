@@ -8,7 +8,7 @@ use TabModifierCompanion\Model\Config;
 
 class VariationNamed extends Variation {
 
-  static public $type = 'named';
+  public $type = 'named';
 
   function apply($image_path) {
     $variationName = $this->options['variation_name'];
