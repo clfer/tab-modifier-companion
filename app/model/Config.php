@@ -129,7 +129,29 @@ class Config {
    */
   public static function toHtml() {
 
-    return '<pre>' . self::toJson() . '</pre>';
+    $html = '';
+
+    $html .= '<h4> Generated icons target directory: [<i>icons_generation_dir</i>]</h4>';
+    $html .= '<p><code>' . static::$icons_generation_dir . '</code></p>';
+
+    $html .= '<h4>Environments:</h4>';
+    $html .= '<ul>';
+    foreach (static::$environments as $environment) {
+      $html .= '<li>' . $environment->label . '</li>'; //toHtml() . '</li>';
+    }
+    $html .= '</ul>';
+    $html .= '<h4>Apps:</h4>';
+    $html .= '<ul>';
+    foreach (static::$appIcons as $app_label => $appIcon) {
+      $html .= '<li>';
+      $html .= theme('panel', ['key' => $app_label, 'title' => $app_label, 'panel_body_suffix' => $appIcon->toHtml()]);
+      $html .= '</li>';
+    }
+    $html .= '</ul>';
+
+    //TODO Find a readable way to display Named variations
+
+    return $html;
   }
 
   public static function toJson() {
