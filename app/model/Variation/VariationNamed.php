@@ -14,8 +14,10 @@ class VariationNamed extends Variation {
     $variationName = $this->options['variation_name'];
     $namedVariation = Config::getNamedVariation($variationName);
     if (!empty($namedVariation)) {
+      $namedVariation->setLabel($this->label);
       $variation_path = $namedVariation->apply($image_path);
+
+      parent::apply($variation_path);
     }
-    parent::apply($variation_path);
   }
 }
