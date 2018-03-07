@@ -166,11 +166,10 @@ class Variation implements \JsonSerializable {
    * @return mixed
    */
   function apply($image_path) {
-    $new_path = $image_path;
 
-    $this->applySubvariations($new_path);
+    $this->applySubvariations($image_path);
 
-    return $new_path;
+    return $image_path;
   }
 
   /**
