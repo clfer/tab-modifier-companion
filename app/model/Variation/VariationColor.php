@@ -34,5 +34,7 @@ class VariationColor extends Variation {
 
     // Apply subvariations
     parent::apply($variation_path);
+
+    return $variation_path;
   }
 }

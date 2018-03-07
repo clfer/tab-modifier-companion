@@ -1,5 +1,7 @@
 <?php
-use ColorThief\ColorThief;
+use TabModifierCompanion\Model\Config;
+use TabModifierCompanion\Model\Variation\Variation;
+use TabModifierCompanion\Model\Variation\VariationColor;
 
 /**
  * @param $conf_path string path to the conf file to load
@@ -20,62 +22,30 @@ function _load_conf($conf_path) {
  * @return array an array with the generated icons path
  */
 function icon_generation($conf_path, $keep = TRUE) {
-  _load_conf($conf_path);
-
-  global $conf;
-
-  $generated_icons_list = array();
-
-  $icons_generation_dir = $conf['icons_generation_dir'];
+  Config::load($conf_path);
 
   if (!$keep) {
-    _delete_dir($icons_generation_dir);
+    _delete_dir(Config::$icons_generation_dir);
   }
 
-  foreach ($conf['apps'] as $app_code => $app_info) {
-    $app_info_path = $app_info['original_icon'];
-    list($r,$g,$b) = ColorThief::getColor($app_info_path, 1);
-    list($base_hue, $base_saturation, $base_value) = rgb2hsl($r,$g,$b);
+  foreach (Config::getAppIcons() as $app_code => $appIcon) {
 
-    $generated_icons_list[''][$app_code] = $app_info_path;
 
-    foreach ($conf['environments'] as $env_code => $env_info) {
+    foreach (Config::getEnvironments() as $env_code => $environment) {
+
+      $environment_variation = new VariationColor($environment->label ,array('color' => $environment->color));
+
+      $colorized_icon_path = $environment_variation->apply($appIcon->original_icon);
 
       //--- Create base layer ---
-      // Load base layer
-      $base_layer = imagecreatefrompng($app_info_path);
-      _imagetransparency($base_layer);
-
-      //--- Translate color ---
-      list($colorize_hue, $colorize_saturation, $colorize_value) = hex2hsl($env_info['color']);
-      $delta_hue = $colorize_hue - $base_hue;
-      $delta_value = $colorize_value - $base_value;
-      imagehue($base_layer, $delta_hue * 360, NULL ,$delta_value);
-
-      $env_generated_dir = "$icons_generation_dir/$env_code/$app_code";
-
-      // Save image
-      $colorized_icon_path = imagepng_save($base_layer, $env_generated_dir, $app_code);
-
-      $generated_icons_list[$env_code][$app_code][''] = $colorized_icon_path;
-
-      if (!empty($app_info['variations'])) {
-        foreach ($app_info['variations'] as $app_variation_label => $app_variation) {
-          $new_icons_path = imagevariation_apply($colorized_icon_path, $env_generated_dir, $app_variation_label, $app_variation);
-
-          if (!empty($new_icons_path)) {
-            if (!isset($generated_icons_list[$env_code][$app_code]['variations'][$app_variation_label])) {
-              $generated_icons_list[$env_code][$app_code]['variations'][$app_variation_label] = array();
-            }
-
-            $generated_icons_list[$env_code][$app_code]['variations'][$app_variation_label] = array_merge_recursive($generated_icons_list[$env_code][$app_code]['variations'][$app_variation_label], $new_icons_path);
-          }
+      if (!empty($appIcon->variations)) {
+        foreach ($appIcon->variations as $app_variation_label => $app_variation) {
+          $variation = Variation::build($app_variation);
+          $variation->apply($colorized_icon_path);
         }
       }
     }
   }
-
-  return $generated_icons_list;
 }
 
 /**

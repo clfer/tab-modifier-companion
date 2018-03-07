@@ -87,7 +87,12 @@ class Variation implements \JsonSerializable {
 
     if (!empty($variation_info['variations'])) {
       foreach ($variation_info['variations'] as $subvariation_label => $subvariation_info) {
+        if (!isset($subvariation_info['label'])) {
+          $subvariation_info['label'] = $subvariation_label;
+        }
+
         $subvariation = Variation::build($subvariation_info);
+
         $variation->setSubvariation($subvariation_label, $subvariation);
       }
     }

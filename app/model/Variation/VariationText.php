@@ -16,9 +16,11 @@ class VariationText extends Variation {
   function apply($image_path) {
 
 
-    if (empty($this->options['path'])) {
+    if (empty($this->options['text'])) {
       throw new \Exception(__CLASS__ . '->' . __FUNCTION__ . ' : Missing \'text\' options.');
     }
+
+    $variation_path = $image_path;
 
     $base_layer = imagecreatefrompng($image_path);
     _imagetransparency($base_layer);
@@ -65,11 +67,13 @@ class VariationText extends Variation {
 
       imagettftext($base_layer, $font_size, 0, $number_posx, $number_posy, $font_imagecolor, $this->options['font_path'], $text);
 
-      $variation_filename = pathinfo($image_path, PATHINFO_FILENAME . '-' . $this->label);
+      $variation_filename = pathinfo($image_path, PATHINFO_FILENAME) . '-' . $this->label;
 
       $variation_path = imagepng_save($base_layer, Config::getIconsGenerationDir(), $variation_filename);
 
       parent::apply($variation_path);
     }
+
+    return $variation_path;
   }
 }

@@ -1,5 +1,5 @@
 {
-  "icons_generation_dir": "./icons_generated",
+  "icons_generation_dir": "./icons_generated_Object",
   "environments": {
     "local": {
       "label": "local",
@@ -31,7 +31,7 @@
       "label": "magento",
       "original_icon": "./icons_original/app/magento-favicon.png",
       "variations": {
-        "US-multi": "US-multi",
+        "US": "US-multi",
         "EMEA": "EMEA-multi"
       }
     },

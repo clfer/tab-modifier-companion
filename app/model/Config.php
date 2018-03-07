@@ -42,7 +42,7 @@ class Config {
   }
 
   /**
-   * @return array
+   * @return \TabModifierCompanion\Model\Environment[]
    */
   public static function getEnvironments() {
     return static::$environments;
@@ -88,7 +88,7 @@ class Config {
   }
 
   /**
-   * @return array
+   * @return \TabModifierCompanion\Model\AppIcon[]
    */
   public static function getAppIcons() {
     return static::$appIcons;

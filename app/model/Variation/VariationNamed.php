@@ -18,6 +18,8 @@ class VariationNamed extends Variation {
       $variation_path = $namedVariation->apply($image_path);
 
       parent::apply($variation_path);
+
+      return $variation_path;
     }
   }
 }

@@ -9,6 +9,9 @@ class AppIcon implements \JsonSerializable {
 
   public $original_icon;
 
+  /**
+   * @var \TabModifierCompanion\Model\Variation\Variation[]
+   */
   public $variations = [];
 
   /**
