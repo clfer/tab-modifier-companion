@@ -15,9 +15,25 @@
     border: 1px solid black;
 }
 
-td.row-label {
+.panel td.row-label {
     width: 15%;
     vertical-align: middle;
+}
+
+.panel[id^='panel-app-'] .row-label {
+    width: 82px;
+}
+
+td pre {
+    white-space: pre-wrap;       /* css-3 */
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+.panel-group .panel.panel-default {
+ margin-bottom: 20px;
 }
 
 .panel-heading a:after {

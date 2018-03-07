@@ -138,16 +138,24 @@ class Config {
     $html .= '<hr>';
 
     $html .= '<h3>Environments:</h3>';
+    $html .= '<div class="row">';
     foreach (static::$environments as $environment_machine_name => $environment) {
-      $html .= theme('panel', ['key' => $environment_machine_name, 'title' => $environment_machine_name, 'panel_body_suffix' => $environment->toHtml()]);
+      $html .= '<div class="col-sm-6 col-md-4 col-lg-3">' . theme('panel', ['key' => 'env-'.$environment_machine_name, 'title' => $environment_machine_name, 'panel_body_suffix' => $environment->toHtml(), 'color' =>$environment->color]).'</div>';
     }
+    $html .= '</div>';
 
     $html .= '<br>';
     $html .= '<hr>';
 
     $html .= '<h3>Apps:</h3>';
-    foreach (static::$appIcons as $app_machine_name => $appIcon) {
-      $html .= theme('panel', ['key' => $app_machine_name, 'title' => $app_machine_name, 'panel_body_suffix' => $appIcon->toHtml()]);
+    $app_rows = array_chunk(static::$appIcons , 3, TRUE);
+    foreach ($app_rows as $app_row) {
+
+      $html .= '<div class="row">';
+      foreach ($app_row as $app_machine_name => $appIcon) {
+        $html .= '<div class="col-md-4">' . theme('panel', ['key' => 'app-'.$app_machine_name, 'title' => $app_machine_name, 'panel_body_suffix' => $appIcon->toHtml()]).'</div>';
+      }
+      $html .= '</div>';
     }
 
     //TODO Find a readable way to display Named variations

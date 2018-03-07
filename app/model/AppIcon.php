@@ -34,7 +34,7 @@ class AppIcon implements \JsonSerializable {
     $html .= '<tr><td class="row-label">Icon:</td><td>' . _print_icon($this->original_icon) . '</td></tr>';
 
     if (!empty($this->variations)) {
-      $html .= '<tr><td class="row-label">Variations:</td><td><code>' . json_encode($this->variations) . '</code></td></tr>';
+      $html .= '<tr><td class="row-label">Variations:</td><td><pre>' . json_encode($this->variations, JSON_PRETTY_PRINT) . '</pre></td></tr>';
     }
 
     $html .= '</table>';

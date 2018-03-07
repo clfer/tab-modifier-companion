@@ -4,7 +4,27 @@ if (!empty($id)) {
   array_unshift($panel_id, $id);
 }
 $panel_id = implode('-', $panel_id);
+
+if(!empty($color)):
+  list($r,$g,$b) = hex2rgb($color);
 ?>
+<style>
+    #<?php print $panel_id; ?>,
+    #<?php print $panel_id; ?> .panel-heading
+    {
+        border-color: <?php print $color?>;
+        background-color: rgba(<?php print $r?>, <?php print $g?>, <?php print $b?>, 0.3);
+    }
+    #<?php print $panel_id; ?> .panel-heading {
+        border-bottom: solid 1px  <?php print $color?>;
+    }
+
+    #<?php print $panel_id; ?>  .table-bordered>tbody>tr>td{
+        border-color: <?php print $color?>;
+    }
+</style>
+
+<?php endif; ?>
 <div class="panel panel-default" id="<?php print $panel_id; ?>">
     <div class="panel-heading">
         <h4 class="panel-title">
