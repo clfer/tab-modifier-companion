@@ -10,7 +10,7 @@ namespace TabModifierCompanion\Model\Variation;
  */
 class Variation implements \JsonSerializable {
 
-  public $type = NULL;
+  public $type = 'default';
 
   /**
    * @var string
@@ -178,6 +178,62 @@ class Variation implements \JsonSerializable {
   }
 
   /**
+   * @return string Html table rendered
+   */
+  public function getHtmlTable() {
+
+    $table = '<table class="table table-bordered">';
+
+    $table .= '<tr><td class="row-label">Label:</td><td>' . $this->label . '</td></tr>';
+    $table .= '<tr><td class="row-label">Type:</td><td>' . $this->type . '</td></tr>';
+
+    if (!empty($this->options)) {
+      $options_html = $this->getOptionsHtml();
+      $table .= '<tr><td class="row-label">Options:</td><td>' . $options_html . '</td></tr>';
+    }
+    if (!empty($this->variations)) {
+
+      $table .= '<tr>';
+      $table .= '<td class="row-label"">Variations:</td>';
+      $table .= '<td class="option-label">';
+      $table .= $this->getSubvariationsHtml();
+      $table .= '</td>';
+      $table .= '</tr>';
+    }
+
+
+    $table .= '</table>';
+
+    return $table;
+  }
+
+  /**
+   * @return string Html
+   */
+  public function toHtml($title = NULL) {
+    $panel_options = [
+      'key' => 'variation-' . $this->type . '-' . rand(),
+      'title' => '<code>' . $title . '</code>',
+      'panel_body_suffix' => $this->getHtmlTable(),
+      'collapsible' => TRUE,
+      'collapsed' => TRUE
+    ];
+    return theme('panel', $panel_options);
+  }
+
+  /**
+   * @return null
+   */
+  public function getSubvariationsHtml() {
+    $html = '';
+    foreach ($this->variations as $variation_key => $variation) {
+      $html .= $variation->toHtml($variation_key);
+    }
+
+    return $html;
+  }
+
+  /**
    * Apply variation on an image
    *
    * @param string $image_path
@@ -196,5 +252,13 @@ class Variation implements \JsonSerializable {
     return array_filter($fields, function ($v) {
       return isset($v) && (!is_array($v) || !empty($v));
     });
+  }
+
+  /**
+   * @return string
+   */
+  public function getOptionsHtml(): string {
+    $options_html = '<pre>' . json_encode($this->options, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES) . '</pre>';
+    return $options_html;
   }
 }

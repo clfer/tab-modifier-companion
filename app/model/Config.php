@@ -167,7 +167,8 @@ class Config {
     $html .= '<h3>Named variations:</h3>';
     $html .= '<ul>';
     foreach (static::$namedVariations as $namedVariation_machine_name => $namedVariation) {
-      $html .= '<li><code>' . $namedVariation_machine_name . '</code></li>';
+//      $html .= '<li><code>' . $namedVariation_machine_name . '</code></li>';
+      $html .= '<li>' . $namedVariation->toHtml($namedVariation_machine_name) . '</li>';
     }
     $html .= '</ul>';
 
