@@ -9,17 +9,16 @@ if(!empty($color)):
   list($r,$g,$b) = hex2rgb($color);
 ?>
 <style>
-    #<?php print $panel_id; ?>,
-    #<?php print $panel_id; ?> .panel-heading
-    {
+    <?php print "#$panel_id"; ?>,
+    <?php print "#$panel_id"; ?> .panel-heading {
         border-color: <?php print $color?>;
-        background-color: rgba(<?php print $r?>, <?php print $g?>, <?php print $b?>, 0.3);
+        background-color: <?php print "rgba($r, $g, $b, 0.3)"?>;
     }
-    #<?php print $panel_id; ?> .panel-heading {
+    <?php print "#$panel_id"; ?> .panel-heading {
         border-bottom: solid 1px  <?php print $color?>;
     }
 
-    #<?php print $panel_id; ?>  .table-bordered>tbody>tr>td{
+    <?php print "#$panel_id"; ?> .table-bordered > tbody > tr > td {
         border-color: <?php print $color?>;
     }
 </style>
