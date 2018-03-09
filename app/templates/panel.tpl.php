@@ -5,6 +5,8 @@ if (!empty($id)) {
 }
 $panel_id = implode('-', $panel_id);
 
+$collapsible = !empty($collapsible) && isset($title);
+
 if(!empty($color)):
   list($r,$g,$b) = hex2rgb($color);
 ?>
@@ -25,18 +27,19 @@ if(!empty($color)):
 
 <?php endif; ?>
 <div class="panel panel-default" id="<?php print $panel_id; ?>">
-    <div class="panel-heading">
-        <h4 class="panel-title">
-          <?php if (!empty($collapsible)): ?>
-              <a class="<?php print !empty($collapsed) ? 'collapsed' : ''; ?>" data-toggle="collapse" data-target="#collapse-<?php print $panel_id; ?>" href="#collapse-<?php print $panel_id; ?>">
+    <?php if(isset($title)): ?>
+        <div class="panel-heading">
+            <h4 class="panel-title">
+              <?php if (!empty($collapsible)): ?>
+                  <a class="<?php print !empty($collapsed) ? 'collapsed' : ''; ?>" data-toggle="collapse" data-target="#collapse-<?php print $panel_id; ?>" href="#collapse-<?php print $panel_id; ?>">
+                    <?php print $title; ?>
+                  </a>
+              <?php else: ?>
                 <?php print $title; ?>
-              </a>
-          <?php else: ?>
-            <?php print $title; ?>
-          <?php endif; ?>
-        </h4>
-
-    </div>
+              <?php endif; ?>
+            </h4>
+        </div>
+    <?php endif; ?>
   <?php if (!empty($collapsible)): ?>
     <div id="collapse-<?php print $panel_id; ?>" class="panel-collapse collapse<?php print !empty($collapsed) ? '' : ' in'; ?>">
       <?php endif; ?>
