@@ -1,14 +1,32 @@
 version: '2'
 
 services:
-   php:
+  php:
     build: ./.docker/conf/php
-    ports:
-      - '80:80'
     restart: always
     environment:
         XDEBUG_CONFIG: remote_host=192.168.99.1
+        VIRTUAL_HOST: tab-modifier-companion.test
     volumes:
 #       - ./.docker/images/php/error.log:/var/log/apache2/error.log
 #       - ./.docker/images/php/access.log:/var/log/apache2/access.log
        - ./app:/var/www/html
+  nginx-proxy:
+      restart: always
+      image: jwilder/nginx-proxy
+      ports:
+          - "80:80"
+          - "443:443"
+      volumes:
+          - ./.docker/conf/nginx/certs:/etc/nginx/certs
+          - /etc/nginx/vhost.d
+          - /usr/share/nginx/html
+          - /var/run/docker.sock:/tmp/docker.sock:ro
+
+#  nginx-proxy-companion:
+#      image: jrcs/letsencrypt-nginx-proxy-companion
+#      volumes:
+#          - /srv/docker/nginx/certs:/etc/nginx/certs:rw
+#          - /var/run/docker.sock:/var/run/docker.sock
+#      volumes_from:
+#          - nginx-proxy
