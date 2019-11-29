@@ -31,7 +31,7 @@ class Variation implements \JsonSerializable {
    * @param array $options
    * @param array $subvariations
    */
-  public function __construct($label = '', $options = [], $subvariations = []) {
+  public function __construct($label = NULL, $options = [], $subvariations = []) {
     $this->label = $label;
     $this->options = $options;
     $this->variations = $subvariations;

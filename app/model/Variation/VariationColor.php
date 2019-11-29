@@ -17,6 +17,11 @@ class VariationColor extends Variation {
       throw new \Exception(__CLASS__ . '->' . __FUNCTION__ . ' : Missing \'color\' options.');
     }
 
+    if ($this->options['color'] == 'none') {
+      return $image_path;
+    }
+
+
     list($r, $g, $b) = ColorThief::getColor($image_path, 1);
     list($base_hue, $base_saturation, $base_value) = rgb2hsl($r, $g, $b);
 
